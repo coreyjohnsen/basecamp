@@ -24,15 +24,19 @@ body.home{display:block;min-height:100%;font-size:15px}
 .hstats div{display:flex;flex-direction:column-reverse}
 .hstats dt{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
 .hstats dd{margin:0;font:700 34px/1 var(--f-display)}
-.skyline{margin-top:-8px}
-.skyline svg{display:block;width:100%;height:auto}
+.skyline{--sky-h:260px;margin-top:4px;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.sky-track{display:flex;width:max-content;animation:sky var(--dur,180s) linear infinite}
+.skyline:hover .sky-track,.skyline:focus-within .sky-track{animation-play-state:paused}
+@keyframes sky{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){ .skyline{overflow-x:auto;-webkit-mask-image:none;mask-image:none} .sky-track{animation:none} .sky-track svg+svg{display:none} }
+.skyline svg{display:block;flex:none;height:var(--sky-h);width:auto}
 .skyline a{cursor:pointer}
 .skyline .mt{fill:var(--t-rock);stroke:var(--bg);stroke-width:1.5;stroke-linejoin:round;transition:fill .15s}
 .skyline .cap{fill:var(--t-snow);opacity:.95;pointer-events:none}
-.skyline text{font:600 15px var(--f-display);letter-spacing:.05em;text-transform:uppercase;text-anchor:middle;fill:var(--ink)}
-.skyline text.e{font:400 10.5px var(--f-mono);letter-spacing:0;text-transform:none;fill:var(--mute)}
-.skyline a:hover .mt,.skyline a:focus-visible .mt{fill:var(--accent)}
-.skyline a:hover text{fill:var(--accent)}
+.skyline text{font:600 16px var(--f-display);letter-spacing:.05em;text-transform:uppercase;text-anchor:middle;fill:var(--ink);paint-order:stroke;stroke:var(--sky2);stroke-width:3px;stroke-linejoin:round}
+.skyline text.e{font:400 11px var(--f-mono);letter-spacing:0;text-transform:none;fill:var(--mute)}
+.skyline a.on .mt,.skyline a:hover .mt,.skyline a:focus-visible .mt{fill:var(--accent)}
+.skyline a.on text,.skyline a:hover text{fill:var(--accent)}
 .skyline a:focus-visible{outline:none}
 
 /* sections */
@@ -104,6 +108,6 @@ body.home{display:block;min-height:100%;font-size:15px}
   .cards{grid-template-columns:1fr}
   .hero .wrap{padding-top:36px}
   .hstats dd{font-size:28px}
-  .skyline text{font-size:22px} .skyline text.e{display:none}
+  .skyline{--sky-h:170px}
 }
 @media (max-width:420px){ .home .top .btn{padding:8px 10px;font-size:13px} .brand small{display:none} }

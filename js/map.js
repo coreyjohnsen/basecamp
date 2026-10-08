@@ -8,7 +8,7 @@ import { nowAt, wmo } from './live.js';
 export const ROUTE_COLORS = ['#ff6a4d', '#4fc3f7', '#ffd24a', '#c792ea', '#7bd88f'];
 const HAZ_COLORS = ['#4fd08c', '#ffd43b', '#ff922b', '#ff3b30'];
 const POI_GLYPH = { hazard: '!', crux: '×', water: 'W', viewpoint: 'V', toilet: 'T', ranger: 'R' };
-let map, markers = [], peakMarkers = [], popup, fly = null, spin = false, framing = false, clickOnce = null, ready = false;
+let map, markers = [], peakMarkers = [], popup, fly = null, spin = false, framing = false, clickOnce = null, ready = false, hoverRid = '';
 
 export const getMap = () => map;
 export function initMap() {
@@ -38,12 +38,13 @@ export function initMap() {
   map.on('click', e => {
     if (clickOnce) { const fn = clickOnce; clickOnce = null; map.getCanvas().style.cursor = ''; fn([+e.lngLat.lng.toFixed(5), +e.lngLat.lat.toFixed(5)]); return; }
     const f = hit(e.point); if (!f) return;
-    if (f.properties.rid !== cur.route.id) emit('go', { route: f.properties.rid }); else emit('pick-section', f.properties.si);
+    if (ui.peakView || f.properties.rid !== cur.route.id) emit('go', { route: f.properties.rid }); else emit('pick-section', f.properties.si);
   });
   let lastHover = 0;
   map.on('mousemove', e => {
     if (clickOnce || performance.now() - lastHover < 50) return; lastHover = performance.now();
     const f = hit(e.point); map.getCanvas().style.cursor = f ? 'pointer' : '';
+    if (ui.peakView) { const rid = f ? f.properties.rid : ''; if (rid !== hoverRid) { hoverRid = rid; map.setFilter('r-hot', ['==', ['get', 'rid'], rid]); } return; }
     const si = f && f.properties.rid === cur.route.id ? f.properties.si : -1;
     if (si !== ui.hot) emit('hot', si);
   });
@@ -95,12 +96,14 @@ export function drawRoutes() {
   if (!ready || !cur.peak) return;
   const M = cur.peak, feats = [];
   M.routes.forEach((R, ri) => {
-    const sel = R === cur.route, color = ROUTE_COLORS[ri % ROUTE_COLORS.length], approx = (R.line?.quality || 'approximate') === 'approximate';
+    // In the peak view every route is drawn at full strength.
+    const sel = ui.peakView || R === cur.route, color = ROUTE_COLORS[ri % ROUTE_COLORS.length], approx = (R.line?.quality || 'approximate') === 'approximate';
     R.sections.forEach((s, i) => feats.push({ type: 'Feature', geometry: { type: 'LineString', coordinates: sectionCoords(R, i).map(p => [p[0], p[1]]) },
-      properties: { rid: R.id, si: i, k: R.id + ':' + i, sel, approx, color: sel && ui.hazView ? HAZ_COLORS[hzMax(R, i)] : color } }));
+      properties: { rid: R.id, si: i, k: R.id + ':' + i, sel, approx, color: sel && ui.hazView && !ui.peakView ? HAZ_COLORS[hzMax(R, i)] : color } }));
   });
   map.getSource('routes').setData({ type: 'FeatureCollection', features: feats });
-  markers.forEach(m => m.remove()); markers = []; popup.remove();
+  markers.forEach(m => m.remove()); markers = []; popup.remove(); hoverRid = '';
+  if (ui.peakView) { drawPeakView(); return; }
   const R = cur.route, pl = plan(R);
   R.waypoints.forEach((p, i) => {
     const sleep = pl.camps.includes(i), cls = (p.type === 'camp' ? 'mcamp ' : p.type === 'summit' ? 'summit ' : '') + (sleep ? 'sleep ' : '') + (ui.editing ? 'drag' : '');
@@ -121,6 +124,21 @@ export function drawRoutes() {
   }
   setHot(ui.hot);
 }
+/** Peak view markers: the summit, plus a name tag partway along each route that picks it. */
+function drawPeakView() {
+  const M = cur.peak;
+  addMarker(mk('summit', '', `<b>${esc(M.name)}</b>${fmt(M.elev)}`), M.summit);
+  M.routes.forEach((R, ri) => {
+    const pts = routeCoords(R), at = pts[Math.floor(pts.length * (0.35 + 0.3 * ri / Math.max(1, M.routes.length - 1)))] || pts[0];
+    const el = document.createElement('button'); el.className = 'rtag'; el.type = 'button';
+    el.innerHTML = `<i style="background:${ROUTE_COLORS[ri % ROUTE_COLORS.length]}"></i><b>${esc(R.name)}</b><span>${esc(R.grade)}</span>`;
+    el.onclick = e => { e.stopPropagation(); emit('go', { route: R.id }); };
+    el.onmouseenter = () => map.setFilter('r-hot', ['==', ['get', 'rid'], R.id]);
+    el.onmouseleave = () => map.setFilter('r-hot', ['==', ['get', 'rid'], '']);
+    addMarker(el, [at[0], at[1]]);
+  });
+  setHot(-1);
+}
 export function setHot(i) { if (ready && map.getLayer('r-hot')) map.setFilter('r-hot', ['==', ['get', 'k'], i >= 0 && cur.route ? cur.route.id + ':' + i : '']); }
 
 /** Flies the camera to frame the selected route, looking from the trailhead toward the summit. */
@@ -133,6 +151,15 @@ export function frame(fast) {
   const b = bearing(th, top) - 25, cam = map.cameraForBounds(bounds(pts), { bearing: b, padding: { top: tall ? 110 : 130, bottom: 90, left: 50, right: tall ? 50 : 90 } });
   if (!cam) { framing = false; return; }
   map.flyTo({ center: cam.center, zoom: Math.min(cam.zoom - 0.85, 14), bearing: b, pitch: 58, duration: fast ? 0 : 2400 }, { framing: true });
+}
+/** Looks straight down on the whole mountain so every route can be compared. */
+export function framePeak(fast) {
+  if (!ready || !cur.peak) return; stopFly(); setSpin(false);
+  const M = cur.peak, pts = [M.summit, ...M.routes.flatMap(routeCoords)], stage = $('#stage');
+  const cam = map.cameraForBounds(bounds(pts), { bearing: 0, padding: stage.clientWidth < 700 ? { top: 120, bottom: 150, left: 40, right: 70 } : { top: 200, bottom: 110, left: 70, right: 150 } });
+  if (!cam) return;
+  framing = true;
+  map.flyTo({ center: cam.center, zoom: Math.min(cam.zoom, 14), bearing: 0, pitch: 0, duration: fast ? 0 : 2200 }, { framing: true });
 }
 export function overview() {
   if (!ready) return; stopFly(); setSpin(false);

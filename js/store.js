@@ -27,7 +27,8 @@ export const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st));
 // cur: the loaded peak and selected route. live: what the network has returned so far.
 export const cur = { index: null, peak: null, route: null };
 export const live = { fc: null, fcState: 'idle', fcErr: '', nws: null, alerts: null, avy: null, nps: null, updates: null };
-export const ui = { hazView: false, hot: -1, editing: false };
+// peakView: the top-down look at every route on a mountain, shown before a route is picked.
+export const ui = { hazView: false, hot: -1, editing: false, peakView: false };
 
 const subs = {};
 export const on = (evt, fn) => { (subs[evt] ||= []).push(fn); };

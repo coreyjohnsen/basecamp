@@ -236,3 +236,19 @@ pre.sheet{margin:0;white-space:pre-wrap;font:400 12px/1.55 var(--f-mono);backgro
 ul.probs{margin:0;padding-left:18px;color:var(--h3);font-size:12.5px}
 @media (max-width:900px){ .topbtns{order:2;margin-left:auto} .peaks{order:3} .days{grid-template-columns:repeat(4,minmax(0,1fr))} }
 a.brand{color:inherit;text-decoration:none}
+/* peak view: every route at once, before one is picked */
+.rpick{align-self:center;font:600 13px var(--f-display);letter-spacing:.08em;text-transform:uppercase;color:#fff;background:#0b131e;border-radius:4px;padding:7px 10px}
+.rtag{display:flex;align-items:center;gap:6px;background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:4px;padding:4px 9px 4px 7px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,.35);line-height:1.15;text-align:left}
+.rtag i{width:10px;height:10px;border-radius:50%;flex:none}
+.rtag b{font:600 14px var(--f-display);letter-spacing:.03em;text-transform:uppercase}
+.rtag span{font:400 10.5px var(--f-mono);color:var(--mute)}
+.rtag:hover{border-color:var(--ink)}
+.rpk{display:grid;grid-template-columns:12px minmax(0,1fr);gap:10px;text-align:left;background:none;border:0;border-top:1px solid var(--line);padding:12px;color:inherit}
+.rpk:first-child{border-top:0}
+.rpk:hover{background:var(--panel);box-shadow:inset 3px 0 0 var(--accent)}
+.rpk>i{width:12px;height:12px;border-radius:50%;margin-top:4px}
+.rpk>span{display:grid;gap:3px}
+.rpk b{font:600 18px/1.15 var(--f-display);letter-spacing:.03em;text-transform:uppercase}
+.rpk .grade{margin-top:0}
+.rpk .m{font:400 11.5px var(--f-mono);color:var(--mute)}
+.rpk .t{font-size:13px}

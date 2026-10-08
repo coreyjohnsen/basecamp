@@ -25,7 +25,8 @@ To run it locally, serve the folder (the browser will not load the data files fr
 python3 -m http.server 8000
 ```
 
-The landing page is `index.html`; the app itself is `map.html`. Links can point at a route: `…/map.html#rainier/dc`
+The landing page is `index.html`; the app itself is `map.html`. Links can point at a peak or a route: `…/map.html#rainier` opens the mountain top-down with every route shown,
+`…/map.html#rainier/dc` goes straight to that route in 3D
 (old `…/#rainier/dc` links still work: the landing page forwards them to the map).
 
 ## What is live, and where it comes from

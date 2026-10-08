@@ -3,7 +3,7 @@ import { CONFIG } from './config.js';
 import { st, cur, live, ui, save, on, emit, $, $$, fmt, esc } from './store.js';
 import { loadIndex, loadPeak, loadUpdates } from './data.js';
 import { forecast, nwsForecast, nwsAlerts, avalanche, npsAlerts, clearCache } from './live.js';
-import { initMap, drawRoutes, drawPeakMarkers, frame, overview, setHot, toggleFly, stopFly, toggleSpin, setSpin, setLayer, ROUTE_COLORS } from './map.js';
+import { initMap, drawRoutes, drawPeakMarkers, frame, framePeak, overview, setHot, toggleFly, stopFly, toggleSpin, setSpin, setLayer, ROUTE_COLORS } from './map.js';
 import { renderTabs, renderPane, setTab, liveChanged, markHot, scrollToSection } from './panel.js';
 import { waypointMoved, stopEditing } from './editor.js';
 
@@ -12,9 +12,10 @@ function renderChrome() {
   $('#peaks').innerHTML = cur.index.peaks.map(m => `<button data-m="${esc(m.id)}" aria-pressed="${m.id === M.id}"><b>${esc(m.short || m.name)}</b><span>${fmt(m.elev)} ft${m.draftOnly ? ' · draft' : ''}</span></button>`).join('');
   $$('#peaks button').forEach(b => b.onclick = () => go({ peak: b.dataset.m }));
   $('#pkName').textContent = M.name; $('#pkElev').innerHTML = `${fmt(M.elev)} ft <em>· ${esc(M.range || '')}</em>`; $('#pkBlurb').textContent = M.blurb || '';
-  $('#routes').innerHTML = M.routes.map((r, i) => `<button class="rchip" data-r="${esc(r.id)}" aria-pressed="${r === cur.route}"><i style="background:${ROUTE_COLORS[i % ROUTE_COLORS.length]}"></i><span><b>${esc(r.name)}</b><span>${esc(r.grade)}</span></span></button>`).join('');
+  $('#routes').innerHTML = (ui.peakView ? `<span class="rpick">${M.routes.length > 1 ? 'Pick a route' : 'Open the route'} to see it in 3D</span>` : '') +
+    M.routes.map((r, i) => `<button class="rchip" data-r="${esc(r.id)}" aria-pressed="${!ui.peakView && r === cur.route}"><i style="background:${ROUTE_COLORS[i % ROUTE_COLORS.length]}"></i><span><b>${esc(r.name)}</b><span>${esc(r.grade)}</span></span></button>`).join('');
   $$('#routes button').forEach(b => b.onclick = () => go({ route: b.dataset.r }));
-  document.title = `${M.name} · ${cur.route.name} · Mountaineering Hub`;
+  document.title = ui.peakView ? `${M.name} · Mountaineering Hub` : `${M.name} · ${cur.route.name} · Mountaineering Hub`;
 }
 
 let liveToken = 0;
@@ -38,16 +39,21 @@ async function go({ peak, route, reload, first } = {}) {
     peakChanged = true;
   }
   const M = cur.peak;
+  // A new mountain opens top-down with every route shown; choosing a route goes into 3D.
+  if (peakChanged && !reload) ui.peakView = !route; else if (route) ui.peakView = false;
+  if (ui.peakView && st.tab !== 'route') { st.tab = 'route'; renderTabs(); }
   cur.route = M.routes.find(r => r.id === (route || (peakChanged ? st.route : cur.route?.id))) || M.routes[0];
   st.peak = M.id; st.route = cur.route.id; save(); ui.hot = -1; stopFly(); if (ui.editing) stopEditing();
-  try { history.replaceState(null, '', '#' + M.id + '/' + cur.route.id); } catch (e) { /* ignore */ }
-  renderChrome(); renderPane(); if (peakChanged) drawPeakMarkers(); drawRoutes(); frame(first);
+  try { history.replaceState(null, '', '#' + M.id + (ui.peakView ? '' : '/' + cur.route.id)); } catch (e) { /* ignore */ }
+  renderChrome(); renderPane(); if (peakChanged) drawPeakMarkers(); drawRoutes(); reframe(first);
   loadLive(peakChanged);
 }
 
+const reframe = fast => ui.peakView ? framePeak(fast) : frame(fast);
+
 on('go', go);
 on('redraw', drawRoutes);
-on('frame', () => frame());
+on('frame', () => reframe());
 on('hot', i => { ui.hot = i; setHot(i); markHot(); });
 on('pick-section', i => { if (st.tab !== 'route') setTab('route'); emit('hot', i); scrollToSection(i); });
 on('refresh-live', () => { clearCache(); loadLive(true); renderPane(true); });
@@ -58,9 +64,9 @@ on('data-changed', () => {
   renderChrome(); drawRoutes();
 });
 
-$('#bFly').onclick = toggleFly;
+$('#bFly').onclick = async () => { if (ui.peakView) await go({ route: cur.route.id }); toggleFly(); };
 $('#bSpin').onclick = toggleSpin;
-$('#bFrame').onclick = () => frame();
+$('#bFrame').onclick = () => reframe();
 $('#bAll').onclick = overview;
 $('#bHaz').onclick = e => { ui.hazView = !ui.hazView; e.currentTarget.setAttribute('aria-pressed', ui.hazView); drawRoutes(); };
 const layerIds = Object.keys(CONFIG.map.layers), nextLayer = () => layerIds[(layerIds.indexOf(st.layer) + 1) % layerIds.length];
@@ -68,7 +74,7 @@ const layerBtn = () => { $('#bLayer').textContent = CONFIG.map.layers[nextLayer(
 $('#bLayer').onclick = () => { setLayer(nextLayer()); layerBtn(); };
 $('#bEdit').onclick = e => {
   ui.editing = !ui.editing; e.currentTarget.setAttribute('aria-pressed', ui.editing);
-  if (ui.editing) { setSpin(false); st.tab = 'edit'; } else { stopEditing(); st.tab = 'route'; }
+  if (ui.editing) { setSpin(false); st.tab = 'edit'; if (ui.peakView) { ui.peakView = false; renderChrome(); frame(); } } else { stopEditing(); st.tab = 'route'; }
   renderTabs(); renderPane(); drawRoutes();
 };
 
@@ -86,9 +92,9 @@ $('#bEdit').onclick = e => {
   if (!cur.index.peaks.some(p => p.id === st.peak)) st.peak = cur.index.peaks[0].id;
   renderTabs();
   const mapReady = initMap();
-  await go({ peak: st.peak, route: st.route, first: true });
+  await go({ peak: st.peak, route: hp === st.peak && hr || null, first: true });
   loadUpdates().then(v => v, e => ({ error: e.message })).then(v => { live.updates = v; liveChanged(); });
   if (await mapReady) {
-    drawPeakMarkers(); drawRoutes(); frame();
+    drawPeakMarkers(); drawRoutes(); reframe();
   }
 })();

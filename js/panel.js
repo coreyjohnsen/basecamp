@@ -7,6 +7,7 @@ import { daySummary, forecastDates, wmo, wmoShort } from './live.js';
 import { gearList, gearContext } from './gear.js';
 import { lineMiles, sectionCoords } from './data.js';
 import { renderEditor } from './editor.js';
+import { ROUTE_COLORS } from './map.js';
 
 const TABS = [['route', 'Route'], ['plan', 'Plan'], ['wx', 'Weather'], ['updates', 'Updates'], ['gear', 'Gear'], ['sheet', 'Sheet'], ['log', 'Log']];
 const pane = () => $('#pane');
@@ -40,8 +41,22 @@ function lineBadge(R) {
   return q === 'approximate' ? `<span class="badge" title="${esc(R.line?.source || '')}">approximate line</span>` : `<span class="tag" title="${esc(R.line?.source || '')}">${q === 'gps' ? 'GPS track' : esc(q)}${R.line?.asOf ? ' · ' + esc(R.line.asOf) : ''}</span>`;
 }
 
+/* ---------- Peak view: every route on the mountain, before one is picked ---------- */
+function renderPeak(p) {
+  const M = cur.peak;
+  p.innerHTML = `<div><h2>${esc(M.name)}</h2><div class="grade">${fmt(M.elev)} ft · ${esc(M.range || '')}</div></div>
+  <p>${esc(M.blurb || '')}</p>
+  <div><h3>${M.routes.length} route${M.routes.length > 1 ? 's' : ''} · pick one to see it in 3D</h3><div class="secs">${M.routes.map((R, i) => { const t = totals(R);
+    return `<button class="rpk" data-r="${esc(R.id)}"><i style="background:${ROUTE_COLORS[i % ROUTE_COLORS.length]}"></i><span><b>${esc(R.name)}</b><span class="grade">${esc(R.grade)}</span>
+      <span class="m">${t.mi.toFixed(1)} mi · +${fmt(t.gain)} ft · ${R.days[0] === R.days[1] ? R.days[0] : R.days.join('–')} day${R.days[1] > 1 ? 's' : ''} · ${esc(LEVEL[R.level] || '')}</span>
+      <span class="t">${esc(R.summary || '')}</span></span></button>`; }).join('')}</div></div>
+  <div><h3>Permits and rules</h3><p>${esc(M.permit || '')}</p></div>`;
+  $$('.rpk', p).forEach(b => { b.onclick = () => emit('go', { route: b.dataset.r }); });
+}
+
 /* ---------- Route ---------- */
 R_.route = p => {
+  if (ui.peakView) { renderPeak(p); return; }
   const R = cur.route, M = cur.peak, t = totals(R), ss = seasonState(), f = FC();
   p.innerHTML = `<div><h2>${esc(R.name)}</h2><div class="grade">${esc(R.grade)} ${lineBadge(R)}</div></div>
   <p>${esc(R.summary)}</p>

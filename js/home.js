@@ -21,19 +21,31 @@ const f = { level: 0, season: false };
 let peaks = [];
 
 function skyline(list) {
-  // West to east, evenly spaced; height follows elevation.
-  const W = 1000, H = 230, base = 228, top = 40, byLon = [...list].sort((a, b) => a.summit[0] - b.summit[0]);
-  const hi = Math.max(...list.map(p => p.elev)), lo = Math.min(...list.map(p => p.elev)) - 3000, step = W / byLon.length;
-  const y = e => base - (e - lo) / (hi - lo) * (base - top);
-  const shapes = byLon.map((p, i) => {
-    const x = step * (i + .5), t = y(p.elev), w = step * .95 + (base - t) * .35, cap = t + (base - t) * .28;
-    return `<a href="${link(p)}" aria-label="${esc(p.name)}, ${fmt(p.elev)} ft">
-      <polygon class="mt" points="${x - w},${base} ${x},${t} ${x + w},${base}"/>
-      <polygon class="cap" points="${x - w * .28},${cap} ${x},${t} ${x + w * .28},${cap} ${x + w * .1},${cap - 6} ${x - w * .08},${cap + 4}"/>
-      <text x="${x}" y="${t - 16}">${esc(p.short || p.name)}</text><text class="e" x="${x}" y="${t - 4}">${fmt(p.elev)}</text>
-    </a>`;
-  }).join('');
-  $('#skyline').innerHTML = `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMax meet" role="img" aria-label="Peaks west to east">${shapes}</svg>`;
+  // A strip of peaks, west to east, evenly spaced; height follows elevation. Two copies scroll in a loop.
+  const n = list.length, step = 190, W = n * step, H = 260, base = 258, top = 52, byLon = [...list].sort((a, b) => a.summit[0] - b.summit[0]);
+  const hi = Math.max(...list.map(p => p.elev)), lo = 4000, y = e => base - (e - lo) / (hi - lo) * (base - top);
+  // Draw one peak past each end, wrapped around, so the copies join without a seam.
+  const slots = []; for (let k = -1; k <= n; k++) slots.push({ k, p: byLon[(k + n) % n] });
+  slots.sort((a, b) => b.p.elev - a.p.elev);
+  const strip = copy => {
+    const tab = copy ? ' tabindex="-1"' : '';
+    const bodies = slots.map(({ k, p }) => {
+      const x = step * (k + .5), t = y(p.elev), w = step * .55 + (base - t) * .2, cap = t + (base - t) * .26;
+      const inner = `<polygon class="mt" points="${x - w},${base} ${x},${t} ${x + w},${base}"/>
+        <polygon class="cap" points="${x - w * .26},${cap} ${x},${t} ${x + w * .26},${cap} ${x + w * .1},${cap - 6} ${x - w * .08},${cap + 4}"/>`;
+      return k < 0 || k >= n ? `<g aria-hidden="true">${inner}</g>` : `<a href="${link(p)}"${tab} data-k="${k}" aria-label="${esc(p.name)}, ${fmt(p.elev)} ft">${inner}</a>`;
+    }).join('');
+    const labels = byLon.map((p, k) => { const x = step * (k + .5), t = y(p.elev);
+      return `<a href="${link(p)}" class="lb" data-k="${k}" aria-hidden="true" tabindex="-1"><text x="${x}" y="${t - 18}">${esc(p.short || p.name)}</text><text class="e" x="${x}" y="${t - 5}">${fmt(p.elev)} ft</text></a>`; }).join('');
+    return `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}"${copy ? ' aria-hidden="true"' : ' role="group" aria-label="Peaks, west to east"'}>${bodies}${labels}</svg>`;
+  };
+  const el = $('#skyline');
+  el.innerHTML = `<div class="sky-track" style="--dur:${Math.round(W / 22)}s">${strip(0)}${strip(1)}</div>`;
+  // Hovering a label lights its mountain too.
+  $$('a[data-k]', el).forEach(a => {
+    const svg = a.ownerSVGElement, k = a.dataset.k, mates = () => $$(`a[data-k="${k}"]`, svg);
+    a.onmouseenter = () => mates().forEach(m => m.classList.add('on')); a.onmouseleave = () => mates().forEach(m => m.classList.remove('on'));
+  });
 }
 
 function stats(list) {
