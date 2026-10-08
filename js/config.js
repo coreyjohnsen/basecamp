@@ -31,7 +31,10 @@ export const CONFIG = {
   weather: {
     // Open-Meteo: free for non-commercial use, no key. https://open-meteo.com
     url: 'https://api.open-meteo.com/v1/forecast',
-    days: 7,
+    // Open-Meteo goes out 16 days. The 7-day strip shows the first week; the date finder uses all of it
+    // and treats days past `reliableDays` as a rough guide.
+    days: 16,
+    reliableDays: 7,
     ttlMinutes: 30,
     timezone: 'America/Los_Angeles'
   },

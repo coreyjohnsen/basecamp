@@ -1,5 +1,6 @@
 // Planning maths: times, itinerary, conditions, hazard ratings, sun and moon. No DOM, no network.
 import { st, cur, live, iso, parseDate } from './store.js';
+import { CONFIG } from './config.js';
 import { daySummary } from './live.js';
 
 export const HZ = { crev: 'Crevasses', rock: 'Rockfall', ice: 'Icefall', avy: 'Avalanche', fall: 'Exposure', nav: 'Whiteout / nav', alt: 'Altitude' };
@@ -118,6 +119,60 @@ export function rateDay(d, R = cur.route) {
   if (d.wind >= 25 || d.pr >= 0.2 || (d.snow48 >= 6 && avy) || (d.sky === 2 && nav)) return 2;
   return 0;
 }
+
+/* ---------- date finder ---------- */
+export const today = () => parseDate(iso(new Date()));
+const addDays = (d, n) => new Date(d.getTime() + n * 864e5);
+/** The finder's range, filling in a rolling two weeks from today and never starting in the past. */
+export function winRange() {
+  const t = today(), w = st.win || {};
+  let from = w.from ? parseDate(w.from) : t; if (from < t) from = t;
+  let to = w.to ? parseDate(w.to) : addDays(from, 13); if (to < from) to = from;
+  return { from, to };
+}
+/** Weather score 0–100 for a trip starting on `start`, with the reasons behind it. src: live, rough (past the reliable range) or season. */
+export function scoreTrip(start, R = cur.route, pl = plan(R)) {
+  const n = R.waypoints.length - 1, sd = addDays(start, pl.summitIdx), m = sd.getMonth() + (sd.getDate() - 1) / new Date(sd.getFullYear(), sd.getMonth() + 1, 0).getDate();
+  const season = inRange(m, R.prime) ? 0 : inRange(m, R.season) ? 1 : 3;
+  const seasonPen = [0, 12, 0, 45][season], seasonWhy = season === 1 ? 'shoulder season' : season === 3 ? 'outside the usual season' : '';
+  const d = live.fc ? daySummary(live.fc, n, iso(sd)) : null;
+  if (!d) return { score: Math.max(0, 70 - seasonPen), src: 'season', season, why: [seasonWhy || 'prime season'].filter(Boolean) };
+  const avy = R.sections.some(s => (s.hazards || {}).avy), nav = R.sections.some(s => ((s.hazards || {}).nav || 0) >= 2);
+  const melt = R.sections.some(s => (s.hazards || {}).crev || (s.hazards || {}).rock || (s.hazards || {}).ice);
+  const pens = [];
+  const pen = (v, why) => { if (v > 0.5) pens.push([v, why]); };
+  pen((d.wind - 15) * 1.6, `${Math.round(d.wind)} mph wind on top`);
+  pen(d.pr * 70, d.sn >= 1 ? `${d.sn.toFixed(0)} in of snow on summit day` : `${d.pr.toFixed(2)} in of rain on summit day`);
+  if (avy) pen((d.snow48 - 2) * 2.5, `${Math.round(d.snow48)} in of new snow before summit day`);
+  pen(d.sky === 2 ? (nav ? 20 : 12) : d.sky === 1 ? 4 : 0, d.sky === 2 ? 'in cloud' : 'partly cloudy');
+  if (melt && d.fl > cur.peak.elev) pen(8, 'no overnight refreeze');
+  const wc = chill(d.lo ?? d.hi, d.wind); pen(wc < -10 ? 10 : wc < 5 ? 4 : 0, `wind chill near ${Math.round(wc)}°F`);
+  // The other days of the trip: rain or snow in camp and on the approach.
+  pl.days.forEach((_, i) => {
+    if (i === pl.summitIdx) return;
+    const o = daySummary(live.fc, pl.hi, iso(addDays(start, i)));
+    if (o) pen(o.pr * 35, `wet day ${i + 1}`);
+  });
+  pen(seasonPen, seasonWhy);
+  let score = 100 - pens.reduce((a, b) => a + b[0], 0);
+  const r = rateDay(d, R); if (r === 3) score = Math.min(score, 45); else if (r === 2) score = Math.min(score, 75);
+  const out = Math.round((sd - today()) / 864e5) + 1;
+  const good = [d.wind < 20 && 'light wind', d.pr < 0.05 && 'dry', d.sky === 0 && 'clear', d.fl != null && `freezing level ${(Math.round(d.fl / 500) * 500).toLocaleString('en-US')} ft`].filter(Boolean);
+  return { score: Math.max(0, Math.round(score)), src: out > (CONFIG.weather.reliableDays || 7) ? 'rough' : 'live', season, day: d,
+    why: pens.length ? pens.sort((a, b) => b[0] - a[0]).slice(0, 2).map(p => p[1]) : good.slice(0, 3) };
+}
+/** Every trip that fits the range with all of its days on allowed weekdays, best first. */
+export function findWindows(R = cur.route) {
+  const pl = plan(R), len = pl.days.length, { from, to } = winRange(), dow = new Set((st.win || {}).dow || [0, 1, 2, 3, 4, 5, 6]);
+  const all = [];
+  for (let s = from; addDays(s, len - 1) <= to; s = addDays(s, 1)) {
+    let ok = true; for (let i = 0; i < len; i++) if (!dow.has(addDays(s, i).getDay())) { ok = false; break; }
+    if (ok) all.push({ start: s, end: addDays(s, len - 1), summit: addDays(s, pl.summitIdx), ...scoreTrip(s, R, pl) });
+  }
+  const rank = c => c.score - (c.src === 'season' ? 30 : c.src === 'rough' ? 8 : 0);
+  return { len, all, best: [...all].sort((a, b) => rank(b) - rank(a) || a.start - b.start).slice(0, 3) };
+}
+export const scoreLabel = s => s >= 80 ? 'Good' : s >= 60 ? 'Fair' : 'Poor';
 
 /* ---------- sun and moon ---------- */
 function pacOff(d) { const y = d.getFullYear(), a = new Date(y, 2, 1), b = new Date(y, 10, 1); const s = new Date(y, 2, 1 + (7 - a.getDay()) % 7 + 7), e = new Date(y, 10, 1 + (7 - b.getDay()) % 7); return d >= s && d < e ? -7 : -8; }

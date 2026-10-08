@@ -20,7 +20,9 @@ try { saved = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { /* stor
 // st: everything the user chooses. Persisted in this browser.
 export const st = Object.assign({
   peak: 'rainier', route: null, tab: 'route', date: defDate(), team: 3, pace: 1, walk: 'auto',
-  camps: {}, fcMode: 'live', fc: {}, chk: {}, sheet: {}, log: [], layer: 'satellite'
+  camps: {}, fcMode: 'live', fc: {}, chk: {}, sheet: {}, log: [], layer: 'satellite',
+  // Date finder: a range (null = rolling, from today) and the weekdays every trip day must fall on, 0 = Sunday.
+  win: { from: null, to: null, dow: [0, 1, 2, 3, 4, 5, 6] }
 }, saved);
 export const save = () => { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { /* ignore */ } };
 

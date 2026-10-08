@@ -43,7 +43,9 @@ The landing page is `index.html`; the app itself is `map.html`. Links can point 
 
 Every source is configured in `js/config.js`. Each one fails on its own: if a service is down the panel says so and the rest keeps working.
 
-The forecast reaches 7 days. For a summit day further out, the app falls back to seasonal typicals and says so.
+The forecast reaches 16 days; past the first 7 it is treated as a rough guide. For a summit day further out, the app falls back to seasonal typicals and says so.
+On the Plan tab, **Find a weather window** takes a date range and the days of the week you can be out, scores every trip that fits
+(wind, rain and snow, new snow on avalanche terrain, cloud on hard-to-navigate routes, cold, season) and suggests the best start dates.
 On the Weather tab, **My numbers** lets you override the forecast by hand.
 
 ### Keeping `data/updates.json` fresh

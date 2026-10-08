@@ -2,7 +2,7 @@
 import { CONFIG } from './config.js';
 import { st, cur, live, ui, save, emit, $, $$, fmt, esc, iso, parseDate } from './store.js';
 import { HZ, HZS, TER, LEVEL, secTime, plan, totals, startDate, summitDate, monthF, fmtDate, fmtDay, seasonState, seasFL, FC, tempAt, chill,
-  waypointWx, nightLow, hzAdj, hzMax, flags, rateDay, sun, moon, tm, hrs, summitTimes } from './calc.js';
+  waypointWx, nightLow, hzAdj, hzMax, flags, rateDay, sun, moon, tm, hrs, summitTimes, winRange, findWindows, scoreLabel, today } from './calc.js';
 import { daySummary, forecastDates, wmo, wmoShort } from './live.js';
 import { gearList, gearContext } from './gear.js';
 import { lineMiles, sectionCoords } from './data.js';
@@ -109,10 +109,44 @@ function planOut() {
   });
   h += `</div><p class="sub" style="margin-top:6px">Sunrise ${tm(s.rise)}, sunset ${tm(s.set)} ${s.tz} on summit day.</p></div>`;
   $('#planOut').innerHTML = h;
-  $$('#planOut [data-camp]').forEach(b => b.onclick = () => { const i = +b.dataset.camp, a = st.camps[cur.route.id], j = a.indexOf(i); j < 0 ? a.push(i) : a.splice(j, 1); save(); planOut(); emit('redraw'); });
+  $$('#planOut [data-camp]').forEach(b => b.onclick = () => { const i = +b.dataset.camp, a = st.camps[cur.route.id], j = a.indexOf(i); j < 0 ? a.push(i) : a.splice(j, 1); save(); planOut(); winOut(); emit('redraw'); });
 }
-R_.plan = p => {
-  const R = cur.route;
+/* ---------- date finder ---------- */
+const DOW = ['S', 'M', 'T', 'W', 'T', 'F', 'S'], DOWL = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const PRESETS = [['Any day', [0, 1, 2, 3, 4, 5, 6]], ['Weekends', [0, 6]], ['Fri–Sun', [5, 6, 0]], ['Weekdays', [1, 2, 3, 4, 5]]];
+const sameSet = (a, b) => a.length === b.length && a.every(x => b.includes(x));
+const span = c => c.start.getTime() === c.end.getTime() ? fmtDay(c.start) : `${fmtDay(c.start)} – ${fmtDay(c.end)}`;
+function winBox() {
+  const { from, to } = winRange(), dow = st.win.dow, t = iso(today());
+  return `<div class="box win"><h3>Find a weather window</h3>
+  <div class="form"><label>Earliest start<input type="date" id="wFrom" min="${t}" value="${iso(from)}"></label><label>Latest finish<input type="date" id="wTo" min="${t}" value="${iso(to)}"></label></div>
+  <div class="dowrow"><div class="seg" role="group" aria-label="Quick picks">${PRESETS.map(([l, d]) => `<button data-pre="${d.join(',')}" aria-pressed="${sameSet(dow, d)}">${l}</button>`).join('')}</div>
+  <div class="dows" role="group" aria-label="Days you can be on the mountain">${DOW.map((l, i) => `<button data-dow="${i}" aria-pressed="${dow.includes(i)}" title="${DOWL[i]}">${l}</button>`).join('')}</div></div>
+  <div id="winOut"></div></div>`;
+}
+function winOut() {
+  const R = cur.route, W = findWindows(R), el = $('#winOut'); if (!el) return;
+  const dl = st.win.dow.slice().sort((a, b) => ((a + 6) % 7) - ((b + 6) % 7)).map(i => DOWL[i].slice(0, 3)).join(', ');
+  let h = '';
+  if (!W.all.length) {
+    h = `<p class="sub">No ${W.len}-day trip fits ${st.win.dow.length === 7 ? 'this range' : 'inside ' + dl + ' in this range'}. ${W.len > 1 && st.win.dow.length < 7 ? `Every day of the trip has to fall on a chosen day, so add a day either side or sleep at fewer camps.` : 'Widen the range.'}</p>`;
+  } else {
+    const fc = live.fcState === 'loading' ? '<p class="sub">Loading the forecast…</p>' : live.fcState === 'error' ? '<p class="sub">The forecast did not load, so these are ranked by season only.</p>' : '';
+    const tag = c => c.src === 'season' ? '<span class="tag">no forecast yet</span>' : c.src === 'rough' ? '<span class="tag">rough forecast</span>' : '';
+    const top = W.best[0], none = top.src !== 'season' && top.score < 60 ? `<p class="sub"><b>No good ${W.len > 1 ? 'trips' : 'days'} in this range.</b> Widen it, allow more days of the week, or check back as the forecast updates.</p>` : '';
+    h = fc + none + `<div class="picks">${W.best.map((c, k) => `<div class="pick s${c.src === 'season' ? 'x' : scoreLabel(c.score)[0]}">
+      <div class="pk"><b>${k ? 'Next best' : 'Best bet'}</b><span class="score">${c.src === 'season' ? '—' : c.score}<small>${c.src === 'season' ? 'season only' : scoreLabel(c.score)}</small></span></div>
+      <div class="pd">${span(c)}${W.len > 1 ? ` <span class="sub">· summit ${fmtDay(c.summit)}</span>` : ''} ${tag(c)}</div>
+      <div class="sub">${c.why.map(esc).join(' · ')}</div>
+      <button class="btn ghost" data-use="${iso(c.start)}" aria-pressed="${iso(c.start) === st.date}">${iso(c.start) === st.date ? 'Planned' : 'Plan this'}</button></div>`).join('')}</div>
+    <div class="cal" role="list" aria-label="Every start date that fits">${W.all.map(c => `<button role="listitem" class="cd s${c.src === 'season' ? 'x' : scoreLabel(c.score)[0]}" data-use="${iso(c.start)}" aria-pressed="${iso(c.start) === st.date}" title="${esc(span(c))}: ${c.src === 'season' ? 'no forecast yet' : c.score + ', ' + c.why.join(', ')}"><b>${c.start.toLocaleDateString('en-US', { weekday: 'short' })}</b><span>${c.start.getMonth() + 1}/${c.start.getDate()}</span><i>${c.src === 'season' ? '·' : c.score}</i></button>`).join('')}</div>
+    <p class="sub">Scores weigh wind, rain and snow, new snow on avalanche terrain, cloud on hard-to-navigate routes, cold and the season, using the forecast at the summit and at camp. Past ${CONFIG.weather.reliableDays || 7} days the forecast is a rough guide; past ${CONFIG.weather.days}, only the season counts.</p>`;
+  }
+  el.innerHTML = h;
+  $$('[data-use]', el).forEach(b => b.onclick = () => { st.date = b.dataset.use; st.fcMode = 'live'; save(); R_.plan(pane(), true); emit('redraw'); });
+}
+R_.plan = (p, keep) => {
+  const R = cur.route, y = p.scrollTop;
   p.innerHTML = `<div><h2>Plan the climb</h2><div class="grade">${esc(cur.peak.name)} · ${esc(R.name)}</div></div>
   <div class="box form">
    <label>Start date<input type="date" id="fDate" value="${st.date}"></label>
@@ -120,11 +154,19 @@ R_.plan = p => {
    <label>Pace<select id="fPace"><option value="0.8">Fast, fit and acclimatized</option><option value="1">Steady</option><option value="1.25">Relaxed or first big peak</option></select></label>
    <label>After the summit<select id="fWalk"><option value="auto">Decide for me</option><option value="same">Walk out the same day</option><option value="next">Sleep at camp, walk out next day</option></select></label>
   </div>
+  ${winBox()}
   <div>${seasonStrip(R)}<p class="sub" style="margin-top:6px" id="planSeason"></p></div>
   <div id="planOut" style="display:flex;flex-direction:column;gap:18px"></div>`;
   $('#fPace').value = String(st.pace); $('#fWalk').value = st.walk;
-  const up = () => { st.date = $('#fDate').value || st.date; st.team = Math.max(1, Math.min(12, +$('#fTeam').value || 1)); st.pace = +$('#fPace').value; st.walk = $('#fWalk').value; save(); $('#planSeason').textContent = `Summit day ${fmtDate(summitDate())}: ${seasonState()[0].toLowerCase()}.`; $('.season em', p).style.left = monthF() / 12 * 100 + '%'; planOut(); emit('redraw'); };
+  const up = () => { st.date = $('#fDate').value || st.date; st.team = Math.max(1, Math.min(12, +$('#fTeam').value || 1)); st.pace = +$('#fPace').value; st.walk = $('#fWalk').value; save(); $('#planSeason').textContent = `Summit day ${fmtDate(summitDate())}: ${seasonState()[0].toLowerCase()}.`; $('.season em', p).style.left = monthF() / 12 * 100 + '%'; planOut(); winOut(); emit('redraw'); };
   ['fDate', 'fTeam', 'fPace', 'fWalk'].forEach(id => $('#' + id).onchange = up); up();
+  // Date finder controls. Camps change the trip length, so planOut's camp buttons refresh the finder too.
+  const setWin = o => { Object.assign(st.win, o); save(); R_.plan(p, true); };
+  $('#wFrom').onchange = e => setWin({ from: e.target.value || null });
+  $('#wTo').onchange = e => setWin({ to: e.target.value || null });
+  $$('[data-pre]', p).forEach(b => b.onclick = () => setWin({ dow: b.dataset.pre.split(',').map(Number) }));
+  $$('[data-dow]', p).forEach(b => b.onclick = () => { const i = +b.dataset.dow, d = st.win.dow.includes(i) ? st.win.dow.filter(x => x !== i) : [...st.win.dow, i]; if (d.length) setWin({ dow: d }); });
+  if (keep) p.scrollTop = y;
 };
 
 /* ---------- Weather ---------- */
@@ -137,8 +179,8 @@ function srcLine() {
 }
 function dayStrip() {
   const f = live.fc, R = cur.route; if (!f) return '';
-  const n = R.waypoints.length - 1, sd = iso(summitDate());
-  return `<div><h3>Summit forecast, next ${forecastDates(f).length} days</h3><div class="days">${forecastDates(f).map(d => {
+  const n = R.waypoints.length - 1, sd = iso(summitDate()), dates = forecastDates(f).slice(0, CONFIG.weather.reliableDays || 7);
+  return `<div><h3>Summit forecast, next ${dates.length} days</h3><div class="days">${dates.map(d => {
     const s = daySummary(f, n, d); if (!s) return '';
     return `<button class="dayc r${rateDay(s)}" data-day="${d}" aria-pressed="${d === sd}" title="${wmo(s.code)}. Plan the summit for this day."><b>${parseDate(d).toLocaleDateString('en-US', { weekday: 'short' })} ${+d.slice(8)}</b><span class="t">${Math.round(s.hi)}°/${Math.round(s.lo)}°</span><span>${Math.round(s.wind)} mph</span><span>FL ${(s.fl / 1000).toFixed(1)}</span><span>${s.sn >= 0.5 ? s.sn.toFixed(0) + '″ snow' : s.pr >= 0.05 ? s.pr.toFixed(2) + '″ rain' : wmoShort(s.code)}</span></button>`;
   }).join('')}</div><p class="sub" style="margin-top:6px">High and low at ${fmt(cur.peak.elev)} ft, ridge-top wind, freezing level in thousands of feet. Bar color: green workable, orange caution, red poor. Pick a day to make it your summit day.</p></div>`;
@@ -147,7 +189,7 @@ function wxOut() {
   const R = cur.route, M = cur.peak, f = FC(), s = sun(), mo = moon(), fl = flags(), keys = Object.keys(HZ).filter(k => R.sections.some(x => (x.hazards || {})[k]));
   const worst = fl[0][0], sd = summitDate(), inFc = !!(live.fc && daySummary(live.fc, 0, iso(sd)));
   let basis;
-  if (f.src === 'live') basis = `Using the live forecast for summit day, ${fmtDay(sd)}: freezing level ${fmt(f.fl)} ft, ridge wind ${f.wind} mph, ${f.snow} in new snow in the prior 48 h.`;
+  if (f.src === 'live') basis = `Using the live forecast for summit day, ${fmtDay(sd)}: freezing level ${fmt(f.fl)} ft, ridge wind ${f.wind} mph, ${f.snow} in new snow in the prior 48 h.${(sd - today()) / 864e5 >= (CONFIG.weather.reliableDays || 7) ? ' That is more than a week out, so treat these numbers as a rough guide.' : ''}`;
   else if (f.src === 'manual') basis = `Using your own numbers for ${fmtDay(sd)}.`;
   else basis = live.fc && !inFc ? `Forecasts reach ${CONFIG.weather.days} days out. Your summit day, ${fmtDate(sd)}, is beyond that, so the numbers below are seasonal typicals (freezing level ${fmt(f.fl)} ft). Pick a day above to plan for this week.` : `Using seasonal typicals for ${fmtDate(sd)} (freezing level ${fmt(f.fl)} ft) until the forecast loads.`;
   const anyLive = R.waypoints.some((_, i) => waypointWx(i).live), showDepth = anyLive && R.waypoints.some((_, i) => waypointWx(i).depth != null);
