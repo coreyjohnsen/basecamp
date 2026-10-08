@@ -1,0 +1,198 @@
+{
+ "schema": 2,
+ "id": "forbidden",
+ "name": "Forbidden Peak",
+ "short": "Forbidden",
+ "elev": 8815,
+ "summit": [
+  -121.0585,
+  48.5116
+ ],
+ "range": "North Cascades National Park",
+ "blurb": "A knife-edge granite ridge above Boston Basin and one of the most sought-after alpine climbs in the range.",
+ "treeline": 5600,
+ "snowline": 6600,
+ "permit": "Overnight camps in Boston Basin need a North Cascades NP wilderness permit, and summer weekends fill early. No parking pass needed on the Cascade River Road.",
+ "manager": {
+  "name": "North Cascades NP",
+  "url": "https://www.nps.gov/noca"
+ },
+ "links": [
+  {
+   "label": "North Cascades NP wilderness trip planner",
+   "url": "https://www.nps.gov/noca/planyourvisit/wilderness-trip-planner.htm"
+  },
+  {
+   "label": "North Cascades NP road conditions",
+   "url": "https://www.nps.gov/noca/planyourvisit/road-conditions.htm"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "west",
+   "name": "West Ridge",
+   "grade": "Grade III · 5.6, steep snow couloir",
+   "level": 4,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    6,
+    8.8
+   ],
+   "prime": [
+    6.5,
+    8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rock",
+    "rap"
+   ],
+   "summary": "A steep couloir off the Forbidden Glacier leads to an airy granite ridge, mostly class 4 with a few 5.6 steps. Most accidents happen on the descent of the same ridge and couloir.",
+   "skills": [
+    "Leading and simul-climbing low fifth-class rock with big exposure",
+    "Steep snow, a bergschrund and moats with crampons",
+    "Multiple rappels, often late in the day"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Boston Basin TH",
+     "type": "trailhead",
+     "ele": 3200,
+     "at": [
+      -121.0798,
+      48.4807
+     ],
+     "note": "A turnout on the left near milepost 22 of the Cascade River Road, below Johannesburg."
+    },
+    {
+     "name": "Boston Basin high camp",
+     "type": "camp",
+     "ele": 6200,
+     "at": [
+      -121.0677,
+      48.502
+     ],
+     "note": "Moraine and heather benches with a composting toilet nearby. Mountain goats are habituated to people here: pee on rock, not soil.",
+     "sleep": true
+    },
+    {
+     "name": "Base of the couloir",
+     "type": "waypoint",
+     "ele": 7250,
+     "at": [
+      -121.0659,
+      48.5079
+     ]
+    },
+    {
+     "name": "West Ridge notch",
+     "type": "waypoint",
+     "ele": 7850,
+     "at": [
+      -121.0661,
+      48.512
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8815,
+     "at": [
+      -121.0585,
+      48.5116
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.2,
+     "terrain": "trail",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "An old mining road, then a steep, rooty climbers path with several stream crossings up into the meadows of Boston Basin.",
+     "via": [
+      [
+       -121.079,
+       48.488
+      ],
+      [
+       -121.0735,
+       48.4955
+      ]
+     ]
+    },
+    {
+     "miles": 0.7,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "nav": 1
+     },
+     "note": "North over moraine and up the small Forbidden Glacier.",
+     "via": []
+    },
+    {
+     "miles": 0.25,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 3,
+      "rock": 2,
+      "avy": 1
+     },
+     "note": "The West Ridge couloir: 40–50° snow over a bergschrund and moat. Turns to loose rock by late summer.",
+     "via": []
+    },
+    {
+     "miles": 0.35,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 3,
+      "rock": 1
+     },
+     "note": "The ridge crest: mostly class 4 with 5.6 steps and long drops on both sides.",
+     "via": [
+      [
+       -121.062,
+       48.5122
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Bergschrund and moat",
+   "type": "hazard",
+   "at": [
+    -121.066,
+    48.5085
+   ],
+   "ele": 7300,
+   "note": "Changes through the season; late in summer it can block the couloir."
+  },
+  {
+   "name": "West Ridge crest",
+   "type": "crux",
+   "at": [
+    -121.0615,
+    48.5121
+   ],
+   "note": "Exposed granite with fixed rappel anchors. Slow parties stack up here.",
+   "ele": 7970
+  }
+ ]
+}

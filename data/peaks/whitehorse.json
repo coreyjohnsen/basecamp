@@ -1,0 +1,156 @@
+{
+ "schema": 2,
+ "id": "whitehorse",
+ "name": "Whitehorse Mountain",
+ "short": "Whitehorse",
+ "elev": 6840,
+ "summit": [
+  -121.6776,
+  48.211
+ ],
+ "range": "Boulder River Wilderness · Darrington",
+ "blurb": "The mountain that fills Darrington's skyline: 6,000 ft of relief from the valley floor, finished on a small glacier and an exposed rock summit.",
+ "treeline": 4500,
+ "snowline": 5200,
+ "permit": "Free self-issued wilderness permit. Mine Road and Forest Road 2030 lead to the Neiderprum trailhead.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [
+  {
+   "label": "NWAC avalanche forecast",
+   "url": "https://nwac.us/"
+  }
+ ],
+ "routes": [
+  {
+   "id": "nw",
+   "name": "Northwest Shoulder",
+   "grade": "Grade II · snow, small glacier, class 3",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    4.8,
+    8.0
+   ],
+   "prime": [
+    5.3,
+    6.8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet"
+   ],
+   "summary": "The Neiderprum trail climbs brutally to an old mining-cabin meadow; a climbers route then follows the northwest shoulder on snow to the Whitehorse Glacier and a short, exposed scramble.",
+   "skills": [
+    "A very long day of steep gain",
+    "Steep snow and self-arrest",
+    "Exposed class 3 rock"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Neiderprum TH",
+     "type": "trailhead",
+     "ele": 780,
+     "at": [
+      -121.7057,
+      48.256
+     ]
+    },
+    {
+     "name": "Cabin meadow",
+     "type": "waypoint",
+     "ele": 2590,
+     "at": [
+      -121.703,
+      48.24
+     ],
+     "note": "Site of the old mining cabin. The trail fades out beyond here."
+    },
+    {
+     "name": "Northwest shoulder",
+     "type": "camp",
+     "ele": 3800,
+     "at": [
+      -121.696,
+      48.225
+     ],
+     "note": "Snow or heather bivy sites on the shoulder.",
+     "sleep": true
+    },
+    {
+     "name": "Whitehorse Glacier",
+     "type": "waypoint",
+     "ele": 6100,
+     "at": [
+      -121.6847,
+      48.2143
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 6840,
+     "at": [
+      -121.6776,
+      48.211
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 1.4,
+     "terrain": "trail",
+     "hazards": {
+      "fall": 1
+     },
+     "note": "Neiderprum trail: very steep, rooty and overgrown in places. About 2,400 ft in a mile and a half.",
+     "via": []
+    },
+    {
+     "miles": 2.0,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 2,
+      "fall": 1,
+      "avy": 1
+     },
+     "note": "Climbers route on snow (early season) or brush and talus up the northwest shoulder.",
+     "via": []
+    },
+    {
+     "miles": 0.8,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "avy": 1,
+      "fall": 1
+     },
+     "note": "Small glacier and steep snowfields below the summit tower.",
+     "via": []
+    },
+    {
+     "miles": 0.15,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "Exposed class 3 rock to the summit.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": []
+}

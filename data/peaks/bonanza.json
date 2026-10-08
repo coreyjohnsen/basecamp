@@ -1,0 +1,167 @@
+{
+ "schema": 2,
+ "id": "bonanza",
+ "name": "Bonanza Peak",
+ "short": "Bonanza",
+ "elev": 9511,
+ "summit": [
+  -120.8662,
+  48.2382
+ ],
+ "range": "Glacier Peak Wilderness · Holden",
+ "blurb": "The highest non-volcanic peak in Washington, reached by boat and bus to Holden Village before the climbing starts.",
+ "treeline": 6500,
+ "snowline": 7000,
+ "permit": "Reach Holden on the Lady of the Lake ferry to Lucerne and the Holden Village bus. Free self-issued wilderness permit. Trails here closed after the 2025 Martin Fire: check with the Chelan Ranger District before planning.",
+ "manager": {
+  "name": "Okanogan–Wenatchee NF",
+  "url": "https://www.fs.usda.gov/okawen"
+ },
+ "links": [
+  {
+   "label": "Lady of the Lake ferry",
+   "url": "https://ladyofthelake.com/"
+  },
+  {
+   "label": "Holden Village",
+   "url": "https://www.holdenvillage.org/"
+  }
+ ],
+ "routes": [
+  {
+   "id": "marygreen",
+   "name": "Mary Green Glacier",
+   "grade": "Grade III · glacier, class 3–4 rock",
+   "level": 3,
+   "days": [
+    3,
+    4
+   ],
+   "season": [
+    6,
+    8.8
+   ],
+   "prime": [
+    6.5,
+    8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap"
+   ],
+   "summary": "The Holden Lake trail, slabs and moraine to the Mary Green Glacier, then loose class 3–4 rock on the upper mountain to a horn-shaped summit at the south end of the ridge.",
+   "skills": [
+    "Roped glacier travel and crevasse rescue",
+    "Route finding on loose class 3–4 rock",
+    "Rappelling"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Holden Village",
+     "type": "trailhead",
+     "ele": 3200,
+     "at": [
+      -120.7752,
+      48.1985
+     ],
+     "note": "Reached by ferry and bus; no road access."
+    },
+    {
+     "name": "Holden Lake",
+     "type": "camp",
+     "ele": 5300,
+     "at": [
+      -120.837,
+      48.232
+     ],
+     "note": "Lakeside camps below the east face.",
+     "sleep": true
+    },
+    {
+     "name": "Mary Green Glacier",
+     "type": "waypoint",
+     "ele": 7200,
+     "at": [
+      -120.8506,
+      48.2384
+     ]
+    },
+    {
+     "name": "Top of the glacier",
+     "type": "waypoint",
+     "ele": 8700,
+     "at": [
+      -120.8633,
+      48.2387
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 9511,
+     "at": [
+      -120.8662,
+      48.2382
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 4.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "West up Railroad Creek from Holden, then the Holden Lake trail north.",
+     "via": [
+      [
+       -120.802,
+       48.204
+      ],
+      [
+       -120.824,
+       48.216
+      ]
+     ]
+    },
+    {
+     "miles": 1.0,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Slabs, moraine and snow west of the lake to the glacier.",
+     "via": []
+    },
+    {
+     "miles": 0.7,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 1
+     },
+     "note": "Up the Mary Green Glacier to the rock of the upper mountain.",
+     "via": []
+    },
+    {
+     "miles": 0.4,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 3,
+      "rock": 2,
+      "nav": 1
+     },
+     "note": "Loose class 3–4 to the summit horn. Most parties rappel on the descent.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": []
+}

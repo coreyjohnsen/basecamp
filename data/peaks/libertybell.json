@@ -1,0 +1,162 @@
+{
+ "schema": 2,
+ "id": "libertybell",
+ "name": "Liberty Bell",
+ "short": "Liberty Bell",
+ "elev": 7720,
+ "summit": [
+  -120.6581,
+  48.5154
+ ],
+ "range": "Washington Pass · Okanogan–Wenatchee NF",
+ "blurb": "The granite bell that towers over Washington Pass, with a short approach straight from the highway.",
+ "treeline": 6500,
+ "snowline": 7000,
+ "permit": "Northwest Forest Pass at the Blue Lake trailhead. The highway closes for winter, usually from November until spring.",
+ "manager": {
+  "name": "Okanogan–Wenatchee NF",
+  "url": "https://www.fs.usda.gov/okawen"
+ },
+ "links": [
+  {
+   "label": "WSDOT North Cascades Highway (SR 20)",
+   "url": "https://wsdot.com/travel/real-time/mountainpasses/north-cascades"
+  }
+ ],
+ "routes": [
+  {
+   "id": "beckey",
+   "name": "Beckey Route",
+   "grade": "Grade I · 5.6",
+   "level": 3,
+   "days": [
+    1,
+    1
+   ],
+   "season": [
+    5.8,
+    9.6
+   ],
+   "prime": [
+    6.5,
+    9.2
+   ],
+   "kit": [
+    "axe1",
+    "helmet",
+    "rock0",
+    "rap"
+   ],
+   "summary": "A short hike from the Blue Lake trail, a loose gully to the notch between Liberty Bell and Concord Tower, then a chimney and slab to the top. Rappel or downclimb the route.",
+   "skills": [
+    "Leading or following 5.6 in a chimney",
+    "Rappelling",
+    "Moving carefully in a loose gully with parties above"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Blue Lake TH",
+     "type": "trailhead",
+     "ele": 5250,
+     "at": [
+      -120.6795,
+      48.5193
+     ]
+    },
+    {
+     "name": "Climbers path",
+     "type": "waypoint",
+     "ele": 5750,
+     "at": [
+      -120.6698,
+      48.5178
+     ],
+     "note": "Leave the Blue Lake trail where a well-worn path heads toward the spires."
+    },
+    {
+     "name": "Base of the gully",
+     "type": "waypoint",
+     "ele": 6450,
+     "at": [
+      -120.6613,
+      48.5171
+     ]
+    },
+    {
+     "name": "Liberty Bell–Concord notch",
+     "type": "waypoint",
+     "ele": 7470,
+     "at": [
+      -120.6585,
+      48.5147
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 7720,
+     "at": [
+      -120.6581,
+      48.5154
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 0.8,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Blue Lake trail through forest to the climbers path.",
+     "via": []
+    },
+    {
+     "miles": 0.6,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Climbers path through meadow and talus to the base of the gully.",
+     "via": []
+    },
+    {
+     "miles": 0.3,
+     "terrain": "scramble",
+     "hazards": {
+      "rock": 2,
+      "fall": 1
+     },
+     "note": "Loose gully to the notch. Parties above knock rocks down; wear a helmet from here.",
+     "via": []
+    },
+    {
+     "miles": 0.08,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "Class 4 ledges, a 5.6 chimney and a slab to the summit.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Washington Pass Overlook",
+   "type": "viewpoint",
+   "at": [
+    -120.653,
+    48.5225
+   ],
+   "note": "Roadside overlook with the classic view of Liberty Bell and the Early Winters Spires.",
+   "ele": 5430
+  }
+ ]
+}

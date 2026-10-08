@@ -1,0 +1,180 @@
+{
+ "schema": 2,
+ "id": "ruth",
+ "name": "Ruth Mountain",
+ "short": "Ruth",
+ "elev": 7115,
+ "summit": [
+  -121.5328,
+  48.8599
+ ],
+ "range": "North Cascades National Park · Mt. Baker Wilderness",
+ "blurb": "A snow dome with a front-row view of Shuksan's north side, and a classic first glacier climb.",
+ "treeline": 5500,
+ "snowline": 6000,
+ "permit": "Northwest Forest Pass at the Hannegan trailhead. Hannegan Camp is in the Mt. Baker Wilderness; overnight stays inside the national park need a park permit. Hannegan Pass Road (FR 32) is rough: check its status before you drive.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [
+  {
+   "label": "North Cascades NP wilderness trip planner",
+   "url": "https://www.nps.gov/noca/planyourvisit/wilderness-trip-planner.htm"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "glacier",
+   "name": "Ruth Glacier",
+   "grade": "Grade I · glacier to 30°",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.5,
+    9.0
+   ],
+   "prime": [
+    6.3,
+    8.0
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet0"
+   ],
+   "summary": "The Hannegan Pass trail up Ruth Creek, a climbers path south along the ridge from the pass, then a gentle glacier to an exposed summit crest.",
+   "skills": [
+    "Roped glacier travel",
+    "Crampon and ice-axe use",
+    "Balance on an exposed snow crest"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Hannegan TH",
+     "type": "trailhead",
+     "ele": 3100,
+     "at": [
+      -121.5937,
+      48.9098
+     ]
+    },
+    {
+     "name": "Hannegan Camp",
+     "type": "camp",
+     "ele": 4920,
+     "at": [
+      -121.5395,
+      48.8838
+     ],
+     "note": "Forest camp just below the pass, in the Mt. Baker Wilderness.",
+     "sleep": true
+    },
+    {
+     "name": "Hannegan Pass",
+     "type": "waypoint",
+     "ele": 5060,
+     "at": [
+      -121.5341,
+      48.8821
+     ]
+    },
+    {
+     "name": "Ruth Glacier",
+     "type": "waypoint",
+     "ele": 6000,
+     "at": [
+      -121.5297,
+      48.8677
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 7115,
+     "at": [
+      -121.5328,
+      48.8599
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 3.7,
+     "terrain": "trail",
+     "hazards": {
+      "avy": 1
+     },
+     "note": "Hannegan Pass trail up the Ruth Creek valley. Avalanche paths cross it early in the season.",
+     "via": [
+      [
+       -121.578,
+       48.902
+      ],
+      [
+       -121.56,
+       48.893
+      ],
+      [
+       -121.548,
+       48.887
+      ]
+     ]
+    },
+    {
+     "miles": 0.4,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Last switchbacks to the pass.",
+     "via": []
+    },
+    {
+     "miles": 1.0,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Climbers path south along the ridge to the edge of the glacier. Early in summer you can stay on snow over the ridge high point.",
+     "via": [
+      [
+       -121.5325,
+       48.876
+      ]
+     ]
+    },
+    {
+     "miles": 0.7,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "fall": 1
+     },
+     "note": "Gentle glacier with a few crevasses by late summer, then an exposed crest to the top.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Shuksan view",
+   "type": "viewpoint",
+   "at": [
+    -121.5328,
+    48.8605
+   ],
+   "note": "Straight across the Nooksack Cirque to Shuksan's north face.",
+   "ele": 7060
+  }
+ ]
+}

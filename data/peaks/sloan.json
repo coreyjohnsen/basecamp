@@ -1,0 +1,181 @@
+{
+ "schema": 2,
+ "id": "sloan",
+ "name": "Sloan Peak",
+ "short": "Sloan",
+ "elev": 7835,
+ "summit": [
+  -121.3401,
+  48.0415
+ ],
+ "range": "Henry M. Jackson Wilderness · Mountain Loop",
+ "blurb": "A sharp fin above the North Fork Sauk, climbed by a ledge that spirals around the summit tower: the Corkscrew.",
+ "treeline": 5000,
+ "snowline": 6000,
+ "permit": "Northwest Forest Pass. Free self-issued wilderness permit at the trailhead.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [],
+ "routes": [
+  {
+   "id": "corkscrew",
+   "name": "Corkscrew",
+   "grade": "Grade II · glacier, class 3 ledges",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.8,
+    9.0
+   ],
+   "prime": [
+    6.5,
+    8.0
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet"
+   ],
+   "summary": "Log crossings of the North Fork Sauk, a steep trail up Cougar Creek to meadows, across the Sloan Glacier, then exposed ledges that wrap around the summit tower.",
+   "skills": [
+    "River crossings on logs",
+    "Roped glacier travel",
+    "Class 3 scrambling on exposed ledges"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Sloan Peak TH",
+     "type": "trailhead",
+     "ele": 1930,
+     "at": [
+      -121.3008,
+      48.0725
+     ],
+     "note": "Pullout on the North Fork Sauk River Road just past Garnet Creek."
+    },
+    {
+     "name": "Cougar Creek meadows",
+     "type": "waypoint",
+     "ele": 4800,
+     "at": [
+      -121.3294,
+      48.0594
+     ],
+     "note": "Marshy meadows; better camps higher up."
+    },
+    {
+     "name": "Ridge camp",
+     "type": "camp",
+     "ele": 5800,
+     "at": [
+      -121.3406,
+      48.0533
+     ],
+     "note": "Heather benches on the ridge overlooking the glacier, with running water nearby.",
+     "sleep": true
+    },
+    {
+     "name": "Southeast corner of the glacier",
+     "type": "waypoint",
+     "ele": 7100,
+     "at": [
+      -121.3388,
+      48.0421
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 7835,
+     "at": [
+      -121.3401,
+      48.0415
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.5,
+     "terrain": "trail",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Three crossings of the North Fork Sauk in the first half mile, then a steep trail up Cougar Creek.",
+     "via": [
+      [
+       -121.308,
+       48.07
+      ],
+      [
+       -121.32,
+       48.065
+      ]
+     ]
+    },
+    {
+     "miles": 0.8,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1
+     },
+     "note": "Heather and snow to camps on the ridge above the glacier.",
+     "via": []
+    },
+    {
+     "miles": 1.0,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Across the Sloan Glacier from its north side to the southeast corner.",
+     "via": [
+      [
+       -121.336,
+       48.048
+      ]
+     ]
+    },
+    {
+     "miles": 0.4,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "The Corkscrew: a broad ledge west across the south face, then class 3 rock to the summit.",
+     "via": [
+      [
+       -121.342,
+       48.0402
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "North Fork Sauk crossings",
+   "type": "hazard",
+   "at": [
+    -121.304,
+    48.0718
+   ],
+   "note": "Log crossings that change from year to year. Dangerous at high water and on hot afternoons.",
+   "ele": 2050
+  }
+ ]
+}

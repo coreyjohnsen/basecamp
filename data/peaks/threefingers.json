@@ -1,0 +1,169 @@
+{
+ "schema": 2,
+ "id": "threefingers",
+ "name": "Three Fingers",
+ "short": "Three Fingers",
+ "elev": 6854,
+ "summit": [
+  -121.6878,
+  48.1699
+ ],
+ "range": "Boulder River Wilderness",
+ "blurb": "A 1930s fire lookout on top of the south finger, reached by ladders, with Puget Sound and the Olympics spread out to the west.",
+ "treeline": 5000,
+ "snowline": 5600,
+ "permit": "Tupso Pass Road (FR 41) is washed out and closed to vehicles miles below the trailhead: plan on a long road walk or a bike. Northwest Forest Pass. Free self-issued wilderness permit.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [],
+ "routes": [
+  {
+   "id": "goatflat",
+   "name": "Goat Flat",
+   "grade": "Class 2–3 · snowfield, lookout ladders",
+   "level": 1,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    6.3,
+    9.5
+   ],
+   "prime": [
+    7,
+    9
+   ],
+   "kit": [
+    "axe1",
+    "helmet0"
+   ],
+   "summary": "Trail past Saddle Lake to the heather meadows of Goat Flat, along the ridge to Tin Can Gap, across a snowfield and up rock and wooden ladders to the lookout. The road closure adds miles each way.",
+   "skills": [
+    "Long days with an overnight pack",
+    "Ice-axe self-arrest on a steep snowfield",
+    "Comfort on exposed ladders"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Goat Flat TH",
+     "type": "trailhead",
+     "ele": 3000,
+     "at": [
+      -121.7701,
+      48.1935
+     ],
+     "note": "The road is closed below here; this is where the trail itself starts."
+    },
+    {
+     "name": "Saddle Lake",
+     "type": "waypoint",
+     "ele": 3790,
+     "at": [
+      -121.7575,
+      48.1785
+     ]
+    },
+    {
+     "name": "Goat Flat",
+     "type": "camp",
+     "ele": 5000,
+     "at": [
+      -121.7262,
+      48.1673
+     ],
+     "note": "Open heather meadows and the best camping on the route. Use established sites.",
+     "sleep": true
+    },
+    {
+     "name": "Tin Can Gap",
+     "type": "waypoint",
+     "ele": 5700,
+     "at": [
+      -121.705,
+      48.1691
+     ]
+    },
+    {
+     "name": "Summit lookout",
+     "type": "summit",
+     "ele": 6854,
+     "at": [
+      -121.6878,
+      48.1699
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Rooty, often muddy trail to Saddle Lake.",
+     "via": []
+    },
+    {
+     "miles": 2.3,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Up through forest to the meadows of Goat Flat.",
+     "via": [
+      [
+       -121.743,
+       48.172
+      ]
+     ]
+    },
+    {
+     "miles": 2.0,
+     "terrain": "trail",
+     "hazards": {
+      "fall": 1,
+      "nav": 1
+     },
+     "note": "Along the ridge to Tin Can Gap.",
+     "via": [
+      [
+       -121.716,
+       48.167
+      ]
+     ]
+    },
+    {
+     "miles": 0.6,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 2,
+      "avy": 1
+     },
+     "note": "A steep snowfield (ice axe until late summer), then rock and ladders to the lookout.",
+     "via": [
+      [
+       -121.696,
+       48.17
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Lookout ladders",
+   "type": "crux",
+   "at": [
+    -121.688,
+    48.1698
+   ],
+   "note": "Wooden ladders bolted to the rock below the cabin. Exposed; slow down on the way off.",
+   "ele": 6830
+  }
+ ]
+}

@@ -1,0 +1,179 @@
+{
+ "schema": 2,
+ "id": "dragontail",
+ "name": "Dragontail Peak",
+ "short": "Dragontail",
+ "elev": 8840,
+ "summit": [
+  -120.833,
+  47.479
+ ],
+ "range": "Stuart Range · Alpine Lakes Wilderness",
+ "blurb": "The tallest wall in the Enchantments, climbed from turquoise Colchuck Lake by a glacier and a col.",
+ "treeline": 6500,
+ "snowline": 7400,
+ "permit": "Overnight stays in the Enchantment Permit Area, including Colchuck Lake, need a permit from the yearly lottery. Day trips use a free self-issued permit at the trailhead. Northwest Forest Pass.",
+ "manager": {
+  "name": "Okanogan–Wenatchee NF",
+  "url": "https://www.fs.usda.gov/okawen"
+ },
+ "links": [
+  {
+   "label": "Enchantment permits on Recreation.gov",
+   "url": "https://www.recreation.gov/permits/233273"
+  },
+  {
+   "label": "NWAC avalanche forecast",
+   "url": "https://nwac.us/"
+  }
+ ],
+ "routes": [
+  {
+   "id": "colchuck",
+   "name": "Colchuck Glacier",
+   "grade": "Grade II · snow to 35°, class 2–3",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.5,
+    9.3
+   ],
+   "prime": [
+    6.3,
+    8.0
+   ],
+   "kit": [
+    "axe",
+    "helmet"
+   ],
+   "summary": "The Colchuck Lake trail, boulders around the west shore, the Colchuck Glacier to Colchuck Col, then talus east to the summit. Many parties descend Aasgard Pass instead.",
+   "skills": [
+    "Crampon and ice-axe use on 35° snow or ice",
+    "Off-trail travel on boulders and talus",
+    "A very long day if done car to car"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Stuart Lake TH",
+     "type": "trailhead",
+     "ele": 3400,
+     "at": [
+      -120.8216,
+      47.5277
+     ]
+    },
+    {
+     "name": "Colchuck Lake",
+     "type": "camp",
+     "ele": 5610,
+     "at": [
+      -120.8345,
+      47.4975
+     ],
+     "note": "Permit-only camps on the north shore.",
+     "sleep": true
+    },
+    {
+     "name": "Colchuck Glacier",
+     "type": "waypoint",
+     "ele": 6300,
+     "at": [
+      -120.8412,
+      47.4861
+     ]
+    },
+    {
+     "name": "Colchuck Col",
+     "type": "waypoint",
+     "ele": 8100,
+     "at": [
+      -120.843,
+      47.4785
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8840,
+     "at": [
+      -120.833,
+      47.479
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 4.0,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Stuart Lake trail, then the Colchuck Lake trail across Mountaineer Creek and up to the lake.",
+     "via": [
+      [
+       -120.829,
+       47.517
+      ],
+      [
+       -120.833,
+       47.504
+      ]
+     ]
+    },
+    {
+     "miles": 1.2,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Around the west shore over boulders to the moraine.",
+     "via": [
+      [
+       -120.84,
+       47.493
+      ]
+     ]
+    },
+    {
+     "miles": 0.8,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "Up the Colchuck Glacier to the col. No real crevasses, but it turns to hard ice late in the summer.",
+     "via": []
+    },
+    {
+     "miles": 0.6,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 1,
+      "nav": 1
+     },
+     "note": "East from the col on talus and easy rock to the summit.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Aasgard Pass",
+   "type": "viewpoint",
+   "at": [
+    -120.818,
+    47.484
+   ],
+   "note": "The common descent: 2,200 ft of loose trail and boulders down to Colchuck Lake.",
+   "ele": 8110
+  }
+ ]
+}

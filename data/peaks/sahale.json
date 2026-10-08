@@ -1,0 +1,360 @@
+{
+ "schema": 2,
+ "id": "sahale",
+ "name": "Sahale Peak",
+ "short": "Sahale",
+ "elev": 8680,
+ "summit": [
+  -121.0385,
+  48.4911
+ ],
+ "range": "North Cascades National Park",
+ "blurb": "A trail almost to the top: Cascade Pass, a ridge of heather and marmots, a small glacier and a few moves of rock above Doubtful Lake.",
+ "treeline": 5600,
+ "snowline": 6800,
+ "permit": "No parking pass needed at the end of the Cascade River Road. Every overnight in the park, including Sahale Glacier camp and Boston Basin, needs a North Cascades NP wilderness permit.",
+ "manager": {
+  "name": "North Cascades NP",
+  "url": "https://www.nps.gov/noca"
+ },
+ "links": [
+  {
+   "label": "North Cascades NP wilderness trip planner",
+   "url": "https://www.nps.gov/noca/planyourvisit/wilderness-trip-planner.htm"
+  },
+  {
+   "label": "North Cascades NP road conditions",
+   "url": "https://www.nps.gov/noca/planyourvisit/road-conditions.htm"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "arm",
+   "name": "Sahale Arm",
+   "grade": "Grade II · small glacier, class 4 summit block",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.8,
+    9.3
+   ],
+   "prime": [
+    6.8,
+    8.6
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap"
+   ],
+   "summary": "Switchbacks to Cascade Pass, the Sahale Arm trail, a short glacier and an exposed summit block that most parties rappel.",
+   "skills": [
+    "Crampon and ice-axe use on moderate snow",
+    "Roped travel on a small glacier",
+    "Exposed class 4 moves and a rappel"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Cascade Pass TH",
+     "type": "trailhead",
+     "ele": 3600,
+     "at": [
+      -121.0753,
+      48.4763
+     ]
+    },
+    {
+     "name": "Cascade Pass",
+     "type": "waypoint",
+     "ele": 5390,
+     "at": [
+      -121.0588,
+      48.4683
+     ],
+     "note": "Busy viewpoint and junction. No camping at the pass."
+    },
+    {
+     "name": "Sahale Arm",
+     "type": "waypoint",
+     "ele": 6500,
+     "at": [
+      -121.0551,
+      48.48
+     ],
+     "note": "The trail ends and a climbers path continues up the crest."
+    },
+    {
+     "name": "Sahale Glacier camp",
+     "type": "camp",
+     "ele": 7600,
+     "at": [
+      -121.0458,
+      48.4859
+     ],
+     "note": "Rock-walled tent sites at the toe of the glacier. Exposed to wind; bring sturdy stakes or plan to use rocks.",
+     "sleep": true
+    },
+    {
+     "name": "Base of the summit block",
+     "type": "waypoint",
+     "ele": 8450,
+     "at": [
+      -121.0403,
+      48.4906
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8680,
+     "at": [
+      -121.0385,
+      48.4911
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 3.7,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "About 30 switchbacks through forest and meadow to the pass.",
+     "via": [
+      [
+       -121.07,
+       48.4735
+      ],
+      [
+       -121.064,
+       48.47
+      ]
+     ]
+    },
+    {
+     "miles": 1.4,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "North on the Sahale Arm trail past the Doubtful Lake junction, then up the open arm.",
+     "via": [
+      [
+       -121.0565,
+       48.4735
+      ]
+     ]
+    },
+    {
+     "miles": 1.1,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 1,
+      "nav": 1
+     },
+     "note": "Climbers path, talus and snow up the crest to the camps below the glacier.",
+     "via": [
+      [
+       -121.05,
+       48.4835
+      ]
+     ]
+    },
+    {
+     "miles": 0.5,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "fall": 1,
+      "nav": 1
+     },
+     "note": "Up the Sahale Glacier to the base of the summit rocks. Usually few open crevasses, but it is still a glacier.",
+     "via": []
+    },
+    {
+     "miles": 0.1,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "About 100 ft of exposed class 4 rock to a tiny summit. Most parties rappel back down.",
+     "via": []
+    }
+   ]
+  },
+  {
+   "id": "quiensabe",
+   "name": "Quien Sabe Glacier",
+   "grade": "Grade II · glacier to 35°, class 3–4 summit",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.5,
+    8.8
+   ],
+   "prime": [
+    6.3,
+    7.8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap"
+   ],
+   "summary": "Boston Basin, then east over moraines and up the Quien Sabe Glacier to the same summit block as the Sahale Arm route. A common traverse is up this side and down the arm.",
+   "skills": [
+    "Roped glacier travel and crevasse rescue",
+    "Off-trail travel on moraine and slabs",
+    "Exposed class 3–4 rock and a rappel"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Boston Basin TH",
+     "type": "trailhead",
+     "ele": 3200,
+     "at": [
+      -121.0798,
+      48.4807
+     ],
+     "note": "A turnout on the left near milepost 22 of the Cascade River Road, below Johannesburg."
+    },
+    {
+     "name": "Boston Basin high camp",
+     "type": "camp",
+     "ele": 6200,
+     "at": [
+      -121.0677,
+      48.502
+     ],
+     "note": "Moraine and heather benches with a composting toilet nearby. Mountain goats are habituated to people here: pee on rock, not soil.",
+     "sleep": true
+    },
+    {
+     "name": "Quien Sabe Glacier",
+     "type": "waypoint",
+     "ele": 6700,
+     "at": [
+      -121.0536,
+      48.4996
+     ]
+    },
+    {
+     "name": "Base of the summit block",
+     "type": "waypoint",
+     "ele": 8300,
+     "at": [
+      -121.0397,
+      48.4925
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8680,
+     "at": [
+      -121.0385,
+      48.4911
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.2,
+     "terrain": "trail",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "An old mining road, then a steep, rooty climbers path with several stream crossings up into the meadows of Boston Basin.",
+     "via": [
+      [
+       -121.079,
+       48.488
+      ],
+      [
+       -121.0735,
+       48.4955
+      ]
+     ]
+    },
+    {
+     "miles": 1.0,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "East across moraines, slabs and streams to the toe of the glacier.",
+     "via": []
+    },
+    {
+     "miles": 1.0,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 1
+     },
+     "note": "Up the Quien Sabe toward the gap between Sahale and Boston Peak.",
+     "via": [
+      [
+       -121.046,
+       48.497
+      ]
+     ]
+    },
+    {
+     "miles": 0.15,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "Class 3–4 summit block; rappel on the descent.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Doubtful Lake overlook",
+   "type": "viewpoint",
+   "at": [
+    -121.056,
+    48.4745
+   ],
+   "note": "The lake sits 800 ft below the arm, with old mine workings on its far shore.",
+   "routes": [
+    "arm"
+   ],
+   "ele": 6240
+  },
+  {
+   "name": "Summit block",
+   "type": "crux",
+   "at": [
+    -121.0393,
+    48.4908
+   ],
+   "note": "Short, exposed rock step. Expect a line of parties on summer weekends.",
+   "ele": 8560
+  }
+ ]
+}

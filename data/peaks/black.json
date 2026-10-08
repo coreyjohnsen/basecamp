@@ -1,0 +1,202 @@
+{
+ "schema": 2,
+ "id": "black",
+ "name": "Black Peak",
+ "short": "Black",
+ "elev": 8970,
+ "summit": [
+  -120.8162,
+  48.5235
+ ],
+ "range": "North Cascades · Rainy Pass",
+ "blurb": "The highest summit around Rainy Pass: a long traverse past three alpine lakes and a loose scramble to a view across the whole North Cascades.",
+ "treeline": 6000,
+ "snowline": 7000,
+ "permit": "Northwest Forest Pass at Rainy Pass. Lewis and Wing Lakes lie inside the North Cascades NP Service Complex, so camping there needs a park wilderness permit.",
+ "manager": {
+  "name": "Okanogan–Wenatchee NF",
+  "url": "https://www.fs.usda.gov/okawen"
+ },
+ "links": [
+  {
+   "label": "North Cascades NP wilderness trip planner",
+   "url": "https://www.nps.gov/noca/planyourvisit/wilderness-trip-planner.htm"
+  },
+  {
+   "label": "WSDOT North Cascades Highway (SR 20)",
+   "url": "https://wsdot.com/travel/real-time/mountainpasses/north-cascades"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "south",
+   "name": "South Ridge",
+   "grade": "Class 3 · scree and snow",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    6,
+    9.3
+   ],
+   "prime": [
+    6.8,
+    8.8
+   ],
+   "kit": [
+    "axe1",
+    "helmet"
+   ],
+   "summary": "The Maple Pass trail to Heather Pass, a long talus traverse past Lewis Lake to larch-ringed Wing Lake, then a loose gully and the south ridge to the top.",
+   "skills": [
+    "Hours of off-trail travel on talus and boulders",
+    "Class 3 scrambling on loose rock",
+    "Ice-axe self-arrest on early-season snow"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Rainy Pass TH",
+     "type": "trailhead",
+     "ele": 4850,
+     "at": [
+      -120.7356,
+      48.5153
+     ]
+    },
+    {
+     "name": "Heather Pass",
+     "type": "waypoint",
+     "ele": 6150,
+     "at": [
+      -120.7624,
+      48.5095
+     ],
+     "note": "Leave the Maple Pass trail on the short spur to a small meadow."
+    },
+    {
+     "name": "Lewis Lake",
+     "type": "waypoint",
+     "ele": 5710,
+     "at": [
+      -120.785,
+      48.514
+     ]
+    },
+    {
+     "name": "Wing Lake",
+     "type": "camp",
+     "ele": 6960,
+     "at": [
+      -120.803,
+      48.518
+     ],
+     "note": "Larch bench beside the lake with views of Lewis Lake below. Fragile: camp on rock or established sites.",
+     "sleep": true
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8970,
+     "at": [
+      -120.8162,
+      48.5235
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.0,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Maple Pass loop trail from Rainy Pass, then the short spur to Heather Pass.",
+     "via": [
+      [
+       -120.747,
+       48.51
+      ],
+      [
+       -120.757,
+       48.5085
+      ]
+     ]
+    },
+    {
+     "miles": 1.0,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Climbers path across two talus fields, losing a few hundred feet, to Lewis Lake.",
+     "via": [
+      [
+       -120.773,
+       48.514
+      ]
+     ]
+    },
+    {
+     "miles": 1.4,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Up past Lewis Lake on boulders and heather to Wing Lake.",
+     "via": [
+      [
+       -120.795,
+       48.517
+      ]
+     ]
+    },
+    {
+     "miles": 1.0,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 2,
+      "rock": 2,
+      "nav": 1
+     },
+     "note": "Scree and snow up the basin above Wing Lake to the south ridge, then class 3 to the summit.",
+     "via": [
+      [
+       -120.811,
+       48.5205
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Lewis Lake",
+   "type": "water",
+   "at": [
+    -120.785,
+    48.5135
+   ],
+   "note": "Reliable water.",
+   "ele": 5710
+  },
+  {
+   "name": "Loose scree gully",
+   "type": "hazard",
+   "at": [
+    -120.8115,
+    48.5205
+   ],
+   "note": "Steepens into loose scree above Wing Lake. Space out to avoid knocking rocks onto your partners.",
+   "ele": 7520
+  }
+ ]
+}

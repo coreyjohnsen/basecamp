@@ -1,0 +1,165 @@
+{
+ "schema": 2,
+ "id": "vesper",
+ "name": "Vesper Peak",
+ "short": "Vesper",
+ "elev": 6221,
+ "summit": [
+  -121.5181,
+  48.0129
+ ],
+ "range": "Mountain Loop · Mt. Baker–Snoqualmie NF",
+ "blurb": "Clean granite slabs above Lake Elan, and one of the best summit views on the Mountain Loop.",
+ "treeline": 4800,
+ "snowline": 5400,
+ "permit": "Northwest Forest Pass at the Sunrise Mine trailhead.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [
+  {
+   "label": "NWAC avalanche forecast",
+   "url": "https://nwac.us/"
+  }
+ ],
+ "routes": [
+  {
+   "id": "east",
+   "name": "East Flank",
+   "grade": "Class 2–3 · slabs, snow early season",
+   "level": 1,
+   "days": [
+    1,
+    1
+   ],
+   "season": [
+    6.3,
+    9.5
+   ],
+   "prime": [
+    7,
+    9
+   ],
+   "kit": [
+    "axe1",
+    "helmet0"
+   ],
+   "summary": "Sunrise Mine trail, the steep scree switchbacks of Headlee Pass, past Lake Elan, then granite slabs to the summit.",
+   "skills": [
+    "Steep, loose trail",
+    "Ice-axe self-arrest early in the season",
+    "Friction scrambling on slabs"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Sunrise Mine TH",
+     "type": "trailhead",
+     "ele": 2350,
+     "at": [
+      -121.4777,
+      48.0252
+     ]
+    },
+    {
+     "name": "Foot of Headlee Pass",
+     "type": "waypoint",
+     "ele": 3700,
+     "at": [
+      -121.4944,
+      48.0113
+     ]
+    },
+    {
+     "name": "Headlee Pass",
+     "type": "waypoint",
+     "ele": 4650,
+     "at": [
+      -121.4993,
+      48.0081
+     ],
+     "note": "Narrow notch at the top of the scree switchbacks."
+    },
+    {
+     "name": "Lake Elan",
+     "type": "waypoint",
+     "ele": 5030,
+     "at": [
+      -121.508,
+      48.0143
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 6221,
+     "at": [
+      -121.5181,
+      48.0129
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.4,
+     "terrain": "trail",
+     "hazards": {
+      "avy": 1
+     },
+     "note": "Through forest and across an open avalanche basin to the foot of the pass.",
+     "via": [
+      [
+       -121.488,
+       48.02
+      ]
+     ]
+    },
+    {
+     "miles": 0.4,
+     "terrain": "trail",
+     "hazards": {
+      "fall": 1,
+      "rock": 1
+     },
+     "note": "Tight scree switchbacks up Headlee Pass. Snow lingers here into July.",
+     "via": []
+    },
+    {
+     "miles": 0.8,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 1
+     },
+     "note": "Traverse west to Lake Elan.",
+     "via": []
+    },
+    {
+     "miles": 0.6,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 1
+     },
+     "note": "Granite slabs of the east flank to the summit.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Headlee Pass switchbacks",
+   "type": "hazard",
+   "at": [
+    -121.4975,
+    48.0095
+   ],
+   "note": "Loose scree; avoid standing below other parties.",
+   "ele": 4180
+  }
+ ]
+}

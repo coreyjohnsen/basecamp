@@ -96,6 +96,126 @@
     -121.134,
     48.5374
    ]
+  },
+  {
+   "id": "sahale",
+   "short": "Sahale",
+   "name": "Sahale Peak",
+   "elev": 8680,
+   "summit": [
+    -121.0385,
+    48.4911
+   ]
+  },
+  {
+   "id": "forbidden",
+   "short": "Forbidden",
+   "name": "Forbidden Peak",
+   "elev": 8815,
+   "summit": [
+    -121.0585,
+    48.5116
+   ]
+  },
+  {
+   "id": "black",
+   "short": "Black",
+   "name": "Black Peak",
+   "elev": 8970,
+   "summit": [
+    -120.8162,
+    48.5235
+   ]
+  },
+  {
+   "id": "silverstar",
+   "short": "Silver Star",
+   "name": "Silver Star Mountain",
+   "elev": 8876,
+   "summit": [
+    -120.5852,
+    48.5479
+   ]
+  },
+  {
+   "id": "libertybell",
+   "short": "Liberty Bell",
+   "name": "Liberty Bell",
+   "elev": 7720,
+   "summit": [
+    -120.6581,
+    48.5154
+   ]
+  },
+  {
+   "id": "ruth",
+   "short": "Ruth",
+   "name": "Ruth Mountain",
+   "elev": 7115,
+   "summit": [
+    -121.5328,
+    48.8599
+   ]
+  },
+  {
+   "id": "sloan",
+   "short": "Sloan",
+   "name": "Sloan Peak",
+   "elev": 7835,
+   "summit": [
+    -121.3401,
+    48.0415
+   ]
+  },
+  {
+   "id": "whitehorse",
+   "short": "Whitehorse",
+   "name": "Whitehorse Mountain",
+   "elev": 6840,
+   "summit": [
+    -121.6776,
+    48.211
+   ]
+  },
+  {
+   "id": "threefingers",
+   "short": "Three Fingers",
+   "name": "Three Fingers",
+   "elev": 6854,
+   "summit": [
+    -121.6878,
+    48.1699
+   ]
+  },
+  {
+   "id": "bonanza",
+   "short": "Bonanza",
+   "name": "Bonanza Peak",
+   "elev": 9511,
+   "summit": [
+    -120.8662,
+    48.2382
+   ]
+  },
+  {
+   "id": "vesper",
+   "short": "Vesper",
+   "name": "Vesper Peak",
+   "elev": 6221,
+   "summit": [
+    -121.5181,
+    48.0129
+   ]
+  },
+  {
+   "id": "dragontail",
+   "short": "Dragontail",
+   "name": "Dragontail Peak",
+   "elev": 8840,
+   "summit": [
+    -120.833,
+    47.479
+   ]
   }
  ]
 }

@@ -1,0 +1,181 @@
+{
+ "schema": 2,
+ "id": "silverstar",
+ "name": "Silver Star Mountain",
+ "short": "Silver Star",
+ "elev": 8876,
+ "summit": [
+  -120.5852,
+  48.5479
+ ],
+ "range": "Washington Pass · Okanogan–Wenatchee NF",
+ "blurb": "The twin-summited granite peak east of Washington Pass, hiding a gentle glacier behind its cliffs.",
+ "treeline": 6500,
+ "snowline": 7200,
+ "permit": "Northwest Forest Pass. No overnight permit is needed in the national forest. The North Cascades Highway closes for the winter.",
+ "manager": {
+  "name": "Okanogan–Wenatchee NF",
+  "url": "https://www.fs.usda.gov/okawen"
+ },
+ "links": [
+  {
+   "label": "WSDOT North Cascades Highway (SR 20)",
+   "url": "https://wsdot.com/travel/real-time/mountainpasses/north-cascades"
+  }
+ ],
+ "routes": [
+  {
+   "id": "glacier",
+   "name": "Silver Star Glacier",
+   "grade": "Grade II · glacier, class 3–4 summit",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5.3,
+    9.0
+   ],
+   "prime": [
+    6.3,
+    8.0
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet"
+   ],
+   "summary": "A climbers path up Silver Star Creek, a brushy climb toward Burgundy Col, then the Silver Star Glacier to the col between the twin summits and a short scramble east.",
+   "skills": [
+    "Route finding through brush and boulders",
+    "Roped glacier travel",
+    "Class 3 scrambling, with a low fifth-class step if you miss the ramp"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Placed by hand on terrain data and published route descriptions; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Silver Star Creek",
+     "type": "trailhead",
+     "ele": 3450,
+     "at": [
+      -120.5885,
+      48.5979
+     ],
+     "note": "Roadside parking where the highway crosses Silver Star Creek, east of Washington Pass."
+    },
+    {
+     "name": "Silver Star Creek basin",
+     "type": "waypoint",
+     "ele": 4840,
+     "at": [
+      -120.5839,
+      48.5817
+     ]
+    },
+    {
+     "name": "High camp",
+     "type": "camp",
+     "ele": 6400,
+     "at": [
+      -120.5927,
+      48.5645
+     ],
+     "note": "Sandy and heather sites below Burgundy Col. Water from snowmelt.",
+     "sleep": true
+    },
+    {
+     "name": "Summit col",
+     "type": "waypoint",
+     "ele": 8500,
+     "at": [
+      -120.5892,
+      48.5479
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8876,
+     "at": [
+      -120.5852,
+      48.5479
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.0,
+     "terrain": "trail",
+     "hazards": {
+      "nav": 1
+     },
+     "note": "Climbers path up the east side of Silver Star Creek to an open basin.",
+     "via": [
+      [
+       -120.587,
+       48.589
+      ]
+     ]
+    },
+    {
+     "miles": 1.3,
+     "terrain": "scramble",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Cross to the west side and climb steep brush, boulders and snow toward Burgundy Col, avoiding the gullies at the head of the basin.",
+     "via": [
+      [
+       -120.59,
+       48.572
+      ]
+     ]
+    },
+    {
+     "miles": 1.2,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Rising traverse south over a subsidiary ridge onto the Silver Star Glacier, then up to the col between the summits.",
+     "via": [
+      [
+       -120.5935,
+       48.556
+      ]
+     ]
+    },
+    {
+     "miles": 0.1,
+     "terrain": "rock",
+     "hazards": {
+      "fall": 2,
+      "rock": 1
+     },
+     "note": "Scramble east to the higher summit. An easy ramp about 40 ft below the top avoids a short low fifth-class step.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Burgundy Col",
+   "type": "viewpoint",
+   "at": [
+    -120.5985,
+    48.556
+   ],
+   "note": "Gap between Burgundy Spire and Silver Star; early-season parties sometimes rappel a short step nearby.",
+   "ele": 7170
+  }
+ ]
+}
