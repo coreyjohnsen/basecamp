@@ -1,0 +1,329 @@
+{
+ "schema": 2,
+ "id": "adams",
+ "name": "Mount Adams",
+ "short": "Adams",
+ "elev": 12276,
+ "summit": [
+  -121.4909,
+  46.2024
+ ],
+ "range": "Cascade volcano · Mount Adams Wilderness",
+ "blurb": "Pahto. Second highest in the state and the biggest by volume, with the best non-technical summit in Washington.",
+ "treeline": 6500,
+ "snowline": 8200,
+ "permit": "Mount Adams Climbing Activity Pass required above 7,000 ft in season. Buy it online before you drive out; wilderness permit at the trailhead.",
+ "manager": {
+  "name": "Gifford Pinchot NF",
+  "url": "https://www.fs.usda.gov/giffordpinchot"
+ },
+ "links": [
+  {
+   "label": "Mt. Adams climbing conditions report",
+   "url": "https://www.fs.usda.gov/r06/giffordpinchot/about-area/mt-adams-climbing-conditions-report"
+  }
+ ],
+ "routes": [
+  {
+   "id": "south",
+   "name": "South Spur",
+   "grade": "Grade I · snow to 35°, no glacier",
+   "level": 1,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    4.8,
+    8.8
+   ],
+   "prime": [
+    5.5,
+    7.3
+   ],
+   "kit": [
+    "axe",
+    "blue"
+   ],
+   "summary": "A long, honest snow climb with no crevasses. The first big volcano for many Northwest climbers and a famous glissade.",
+   "skills": [
+    "Ice axe self-arrest",
+    "Cramponing on firm morning snow",
+    "Safe glissading (crampons off)",
+    "6,700 ft of gain"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Cold Springs TH",
+     "type": "trailhead",
+     "ele": 5600,
+     "at": [
+      -121.4975,
+      46.1355
+     ]
+    },
+    {
+     "name": "Crescent Glacier",
+     "type": "waypoint",
+     "ele": 7600,
+     "at": [
+      -121.496,
+      46.164
+     ]
+    },
+    {
+     "name": "Lunch Counter",
+     "type": "camp",
+     "ele": 9400,
+     "at": [
+      -121.492,
+      46.1795
+     ],
+     "note": "Broad bench with rock windbreaks. Melt snow or find trickles in the afternoon.",
+     "sleep": true
+    },
+    {
+     "name": "Pikers Peak",
+     "type": "waypoint",
+     "ele": 11657,
+     "at": [
+      -121.4905,
+      46.1945
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 12276,
+     "at": [
+      -121.4909,
+      46.2024
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.6,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Old road through a burn, then the climbers trail.",
+     "via": [
+      [
+       -121.497,
+       46.15
+      ]
+     ]
+    },
+    {
+     "miles": 1.4,
+     "terrain": "snow",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Around the Crescent Glacier remnant and up to the bench.",
+     "via": []
+    },
+    {
+     "miles": 1.1,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 2,
+      "avy": 1,
+      "nav": 1,
+      "alt": 2
+     },
+     "note": "The big slope. Icy at dawn, slush by noon. Most injuries are glissades gone wrong.",
+     "via": [
+      [
+       -121.491,
+       46.187
+      ]
+     ]
+    },
+    {
+     "miles": 0.6,
+     "terrain": "snow",
+     "hazards": {
+      "nav": 2,
+      "alt": 2
+     },
+     "note": "Across the false-summit plateau and up the last 600 ft.",
+     "via": []
+    }
+   ]
+  },
+  {
+   "id": "adamsgl",
+   "name": "Adams Glacier",
+   "grade": "Grade III · ice to 50°",
+   "level": 4,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    5.2,
+    6.9
+   ],
+   "prime": [
+    5.5,
+    6.5
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "ice",
+    "blue"
+   ],
+   "summary": "A 3,000-ft icefall on the wild north side. One of the finest moderate ice routes in the range, with a short season.",
+   "skills": [
+    "Simul-climbing steep glacier ice",
+    "Route finding in an icefall",
+    "Ice-screw protection",
+    "Descending loose class 2–3 (North Ridge)"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Killen Creek TH",
+     "type": "trailhead",
+     "ele": 4600,
+     "at": [
+      -121.5525,
+      46.2885
+     ]
+    },
+    {
+     "name": "High Camp",
+     "type": "camp",
+     "ele": 6900,
+     "at": [
+      -121.5215,
+      46.24
+     ],
+     "note": "Meadow and moraine benches with tarns.",
+     "sleep": true
+    },
+    {
+     "name": "Foot of the icefall",
+     "type": "waypoint",
+     "ele": 8200,
+     "at": [
+      -121.508,
+      46.226
+     ]
+    },
+    {
+     "name": "Top of the icefall",
+     "type": "waypoint",
+     "ele": 10800,
+     "at": [
+      -121.4975,
+      46.2105
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 12276,
+     "at": [
+      -121.4909,
+      46.2024
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 4,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Killen Creek Trail to the PCT, then the High Camp spur.",
+     "via": [
+      [
+       -121.538,
+       46.265
+      ]
+     ]
+    },
+    {
+     "miles": 1.3,
+     "terrain": "snow",
+     "hazards": {
+      "crev": 1,
+      "nav": 1
+     },
+     "note": "Moraines and lower glacier.",
+     "via": []
+    },
+    {
+     "miles": 1.2,
+     "terrain": "ice",
+     "hazards": {
+      "crev": 3,
+      "ice": 3,
+      "fall": 3,
+      "avy": 2,
+      "alt": 1
+     },
+     "note": "The icefall. Thread seracs and bridges; the line changes every year.",
+     "via": [
+      [
+       -121.5025,
+       46.218
+      ]
+     ]
+    },
+    {
+     "miles": 1,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 2,
+      "alt": 2
+     },
+     "note": "Low-angle upper glacier to the summit. Descend the North Ridge.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Glissade chutes",
+   "type": "hazard",
+   "at": [
+    -121.4915,
+    46.188
+   ],
+   "ele": 10600,
+   "note": "Take crampons off before sliding. Check the runout.",
+   "routes": [
+    "south"
+   ]
+  },
+  {
+   "name": "Adams Glacier icefall",
+   "type": "crux",
+   "at": [
+    -121.5025,
+    46.218
+   ],
+   "ele": 9500,
+   "note": "Serac maze. The line changes every season.",
+   "routes": [
+    "adamsgl"
+   ]
+  }
+ ]
+}

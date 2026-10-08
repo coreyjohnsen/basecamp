@@ -1,0 +1,101 @@
+{
+ "schema": 2,
+ "region": "Washington",
+ "center": [
+  -121.3,
+  47.4
+ ],
+ "zoom": 6.6,
+ "peaks": [
+  {
+   "id": "rainier",
+   "short": "Rainier",
+   "name": "Mount Rainier",
+   "elev": 14410,
+   "summit": [
+    -121.7604,
+    46.8529
+   ]
+  },
+  {
+   "id": "baker",
+   "short": "Baker",
+   "name": "Mount Baker",
+   "elev": 10781,
+   "summit": [
+    -121.8144,
+    48.7768
+   ]
+  },
+  {
+   "id": "adams",
+   "short": "Adams",
+   "name": "Mount Adams",
+   "elev": 12276,
+   "summit": [
+    -121.4909,
+    46.2024
+   ]
+  },
+  {
+   "id": "helens",
+   "short": "St. Helens",
+   "name": "Mount St. Helens",
+   "elev": 8363,
+   "summit": [
+    -122.1944,
+    46.1912
+   ]
+  },
+  {
+   "id": "glacier",
+   "short": "Glacier Peak",
+   "name": "Glacier Peak",
+   "elev": 10541,
+   "summit": [
+    -121.1135,
+    48.1118
+   ]
+  },
+  {
+   "id": "shuksan",
+   "short": "Shuksan",
+   "name": "Mount Shuksan",
+   "elev": 9131,
+   "summit": [
+    -121.603,
+    48.8306
+   ]
+  },
+  {
+   "id": "olympus",
+   "short": "Olympus",
+   "name": "Mount Olympus",
+   "elev": 7980,
+   "summit": [
+    -123.7108,
+    47.8013
+   ]
+  },
+  {
+   "id": "stuart",
+   "short": "Stuart",
+   "name": "Mount Stuart",
+   "elev": 9415,
+   "summit": [
+    -120.9024,
+    47.4751
+   ]
+  },
+  {
+   "id": "eldorado",
+   "short": "Eldorado",
+   "name": "Eldorado Peak",
+   "elev": 8868,
+   "summit": [
+    -121.134,
+    48.5374
+   ]
+  }
+ ]
+}

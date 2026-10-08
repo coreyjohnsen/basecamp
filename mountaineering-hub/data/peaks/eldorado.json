@@ -1,0 +1,204 @@
+{
+ "schema": 2,
+ "id": "eldorado",
+ "name": "Eldorado Peak",
+ "short": "Eldorado",
+ "elev": 8868,
+ "summit": [
+  -121.134,
+  48.5374
+ ],
+ "range": "North Cascades National Park",
+ "blurb": "Queen of the Cascade River. A brutal approach, a vast icecap and a summit ridge as narrow as a sidewalk.",
+ "treeline": 5200,
+ "snowline": 6300,
+ "permit": "North Cascades NP backcountry permit for overnight trips. No parking pass needed on the Cascade River Road.",
+ "manager": {
+  "name": "North Cascades NP",
+  "url": "https://www.nps.gov/noca"
+ },
+ "links": [
+  {
+   "label": "Cascade River Road",
+   "url": "https://www.nps.gov/noca/planyourvisit/cascade-river-road.htm"
+  },
+  {
+   "label": "North Cascades NP road conditions",
+   "url": "https://www.nps.gov/noca/planyourvisit/road-conditions.htm"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "east",
+   "name": "East Ridge",
+   "grade": "Grade II · glacier, exposed snow arête",
+   "level": 2,
+   "days": [
+    1,
+    2
+   ],
+   "season": [
+    5,
+    8.8
+   ],
+   "prime": [
+    5.8,
+    7.8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "blue"
+   ],
+   "summary": "6,700 ft of gain in under five miles: forest, talus, two glaciers, then the famous knife-edge.",
+   "skills": [
+    "Roped glacier travel",
+    "Balance on a narrow snow crest",
+    "Off-trail approach with a heavy pack"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Eldorado Creek TH",
+     "type": "trailhead",
+     "ele": 2160,
+     "at": [
+      -121.123,
+      48.4935
+     ]
+    },
+    {
+     "name": "Top of the boulders",
+     "type": "waypoint",
+     "ele": 5400,
+     "at": [
+      -121.125,
+      48.514
+     ]
+    },
+    {
+     "name": "Ridge crossing",
+     "type": "waypoint",
+     "ele": 6150,
+     "at": [
+      -121.1265,
+      48.5195
+     ]
+    },
+    {
+     "name": "Inspiration Glacier camp",
+     "type": "camp",
+     "ele": 7500,
+     "at": [
+      -121.125,
+      48.534
+     ],
+     "note": "Rock island at the edge of the icecap, with a toilet. One of the great camps in the range.",
+     "sleep": true
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 8868,
+     "at": [
+      -121.134,
+      48.5374
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2,
+     "terrain": "trail",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Cross the North Fork Cascade River on logs, then a relentless climbers path and a half-mile boulder field.",
+     "via": [
+      [
+       -121.124,
+       48.504
+      ]
+     ]
+    },
+    {
+     "miles": 0.8,
+     "terrain": "snow",
+     "hazards": {
+      "nav": 1,
+      "avy": 1
+     },
+     "note": "Heather and snow to a notch; drop a class 3 gully into Roush Creek basin.",
+     "via": []
+    },
+    {
+     "miles": 1.4,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Eldorado Glacier to the flats of the Inspiration.",
+     "via": [
+      [
+       -121.129,
+       48.527
+      ]
+     ]
+    },
+    {
+     "miles": 0.7,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "fall": 3,
+      "nav": 1
+     },
+     "note": "East Ridge. The last 200 ft is a true knife-edge with long drops both sides.",
+     "via": [
+      [
+       -121.129,
+       48.5362
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "North Fork Cascade River",
+   "type": "hazard",
+   "at": [
+    -121.1232,
+    48.4945
+   ],
+   "ele": 2150,
+   "note": "Log crossing at the very start. Dangerous at high water.",
+   "routes": [
+    "east"
+   ]
+  },
+  {
+   "name": "Knife-edge arête",
+   "type": "crux",
+   "at": [
+    -121.1325,
+    48.5368
+   ],
+   "ele": 8800,
+   "note": "A boot-width snow crest with long drops on both sides.",
+   "routes": [
+    "east"
+   ]
+  }
+ ]
+}

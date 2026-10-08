@@ -1,0 +1,289 @@
+{
+ "schema": 2,
+ "id": "helens",
+ "name": "Mount St. Helens",
+ "short": "St. Helens",
+ "elev": 8363,
+ "summit": [
+  -122.1944,
+  46.1912
+ ],
+ "range": "Cascade volcano · National Volcanic Monument",
+ "blurb": "Loowit. Climb to the rim and look straight down into the 1980 crater and its growing lava dome.",
+ "treeline": 4800,
+ "snowline": 6500,
+ "permit": "Climbing permit required year-round above 4,800 ft. A limited daily quota applies April 1 to October 31 and sells out early.",
+ "manager": {
+  "name": "Mount St. Helens NVM",
+  "url": "https://www.fs.usda.gov/giffordpinchot"
+ },
+ "links": [
+  {
+   "label": "Mount St. Helens Institute current conditions",
+   "url": "https://www.mshinstitute.org/current-conditions"
+  }
+ ],
+ "routes": [
+  {
+   "id": "monitor",
+   "name": "Monitor Ridge",
+   "grade": "Class 2 · boulders and ash",
+   "level": 1,
+   "days": [
+    1,
+    1
+   ],
+   "season": [
+    5.3,
+    9.8
+   ],
+   "prime": [
+    6.2,
+    8.8
+   ],
+   "kit": [
+    "helmet0"
+   ],
+   "summary": "The summer route. No technical gear once the snow melts, but 4,600 ft of boulder-hopping and loose ash with no water or shade.",
+   "skills": [
+    "Off-trail boulder scrambling",
+    "Carrying 3+ litres of water",
+    "Staying back from the rim cornice"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Climbers Bivouac",
+     "type": "trailhead",
+     "ele": 3700,
+     "at": [
+      -122.183,
+      46.1466
+     ]
+    },
+    {
+     "name": "Treeline",
+     "type": "waypoint",
+     "ele": 4800,
+     "at": [
+      -122.187,
+      46.164
+     ]
+    },
+    {
+     "name": "Seismic station",
+     "type": "waypoint",
+     "ele": 7000,
+     "at": [
+      -122.189,
+      46.183
+     ]
+    },
+    {
+     "name": "Crater rim",
+     "type": "summit",
+     "ele": 8363,
+     "at": [
+      -122.1944,
+      46.1912
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.1,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Ptarmigan Trail through forest to the Loowit junction.",
+     "via": [
+      [
+       -122.185,
+       46.155
+      ]
+     ]
+    },
+    {
+     "miles": 1.6,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 1,
+      "rock": 1,
+      "nav": 2
+     },
+     "note": "Blocky lava ridges marked by wooden posts.",
+     "via": [
+      [
+       -122.188,
+       46.174
+      ]
+     ]
+    },
+    {
+     "miles": 0.8,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 2,
+      "nav": 1
+     },
+     "note": "Ash and pumice, two steps up and one back. The rim is undercut; snow cornices linger into summer.",
+     "via": [
+      [
+       -122.1895,
+       46.1905
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "worm",
+   "name": "Worm Flows",
+   "grade": "Winter route · snow to 35°",
+   "level": 1,
+   "days": [
+    1,
+    1
+   ],
+   "season": [
+    11,
+    17.5
+   ],
+   "prime": [
+    13.5,
+    16.5
+   ],
+   "kit": [
+    "axe",
+    "avy"
+   ],
+   "summary": "The winter and spring line from Marble Mountain Sno-Park, and a classic ski descent.",
+   "skills": [
+    "Ice axe and crampons",
+    "Reading the avalanche forecast",
+    "Winter navigation",
+    "5,700 ft of gain"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Marble Mtn Sno-Park",
+     "type": "trailhead",
+     "ele": 2700,
+     "at": [
+      -122.1715,
+      46.1305
+     ]
+    },
+    {
+     "name": "Chocolate Falls",
+     "type": "waypoint",
+     "ele": 3700,
+     "at": [
+      -122.1745,
+      46.156
+     ]
+    },
+    {
+     "name": "Weather station",
+     "type": "waypoint",
+     "ele": 6000,
+     "at": [
+      -122.183,
+      46.177
+     ]
+    },
+    {
+     "name": "Crater rim",
+     "type": "summit",
+     "ele": 8363,
+     "at": [
+      -122.1944,
+      46.1912
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.2,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Swift Ski Trail through forest.",
+     "via": [
+      [
+       -122.173,
+       46.143
+      ]
+     ]
+    },
+    {
+     "miles": 1.9,
+     "terrain": "snow",
+     "hazards": {
+      "avy": 2,
+      "nav": 2
+     },
+     "note": "Lava ridges above treeline.",
+     "via": [
+      [
+       -122.179,
+       46.167
+      ]
+     ]
+    },
+    {
+     "miles": 1.6,
+     "terrain": "snow",
+     "hazards": {
+      "avy": 2,
+      "fall": 2,
+      "nav": 2
+     },
+     "note": "Open upper slopes. Cornices overhang the crater: stay well back from the edge.",
+     "via": [
+      [
+       -122.188,
+       46.19
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Crater rim cornice",
+   "type": "hazard",
+   "at": [
+    -122.1915,
+    46.1915
+   ],
+   "ele": 8300,
+   "note": "The rim is undercut. Stay well back from the edge.",
+   "routes": [
+    "monitor",
+    "worm"
+   ]
+  },
+  {
+   "name": "Loowit Trail junction",
+   "type": "water",
+   "at": [
+    -122.187,
+    46.164
+   ],
+   "ele": 4800,
+   "note": "Last shade. No water on the route: carry it all.",
+   "routes": [
+    "monitor"
+   ]
+  }
+ ]
+}

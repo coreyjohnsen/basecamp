@@ -1,0 +1,40 @@
+{
+ "checked": "2026-10-07",
+ "note": "Curated route and access reports. Newest first is not required; the app sorts by date. peak is a peak id or \"*\" for every peak; route is optional.",
+ "items": [
+  {
+   "date": "2026-10-06",
+   "peak": "helens",
+   "title": "Monitor Ridge snow-free; south-side roads open",
+   "body": "The Mount St. Helens Institute report lists Monitor Ridge from Climbers Bivouac as the preferred route, back to rock and ash, with upper sections possibly snowy or icy. All south-side roads and trailheads are open, including FR 830; there is a significant ledge at the Climbers Bivouac lot entrance.",
+   "source": "Mount St. Helens Institute",
+   "url": "https://www.mshinstitute.org/current-conditions"
+  },
+  {
+   "date": "2026-09-21",
+   "peak": "adams",
+   "route": "south",
+   "title": "South Climb road melted out; little snow below 8,500 ft",
+   "body": "The Forest Service report dated September 20 says the road to the South Climb trailhead is fully accessible with limited parking, and snow is sparse to nonexistent below 8,500 ft. A climbing pass is required above 7,000 ft from May 1 to September 30.",
+   "source": "Gifford Pinchot NF climbing conditions report",
+   "url": "https://www.fs.usda.gov/r06/giffordpinchot/about-area/mt-adams-climbing-conditions-report"
+  },
+  {
+   "date": "2026-08-20",
+   "peak": "baker",
+   "route": "cd",
+   "title": "Glacier Creek Road (FS 39) reopened to Heliotrope Ridge",
+   "body": "Washout repairs finished and the road reopened on August 20, restoring vehicle access to the Heliotrope Ridge trailhead for the Coleman–Deming route. Grouse Butte Road (FS 36), a spur off FS 39, was still closed to vehicles.",
+   "source": "Cascadia Daily News",
+   "url": "https://www.cascadiadaily.com/2026/aug/20/glacier-creek-road-reopens-following-washout-repairs/"
+  },
+  {
+   "date": "2026-08-07",
+   "peak": "olympus",
+   "title": "Upper Hoh Road listed as open",
+   "body": "Olympic National Park's road conditions page lists the Upper Hoh Road as open. The road has washed out before, so check again before a long drive.",
+   "source": "Olympic NP road conditions",
+   "url": "https://www.nps.gov/olym/planyourvisit/current-road-conditions.htm"
+  }
+ ]
+}

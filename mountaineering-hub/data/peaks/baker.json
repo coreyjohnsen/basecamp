@@ -1,0 +1,364 @@
+{
+ "schema": 2,
+ "id": "baker",
+ "name": "Mount Baker",
+ "short": "Baker",
+ "elev": 10781,
+ "summit": [
+  -121.8144,
+  48.7768
+ ],
+ "range": "Cascade volcano · Mt. Baker Wilderness",
+ "blurb": "Kulshan. Holds a world-record snowfall and is the classic place to learn glacier travel.",
+ "treeline": 5200,
+ "snowline": 6000,
+ "permit": "No climbing permit. Northwest Forest Pass at both trailheads. Self-register at the trailhead and pack out human waste in blue bags.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [
+  {
+   "label": "USFS Mt. Baker–Snoqualmie alerts",
+   "url": "https://www.fs.usda.gov/r06/mbs/alerts"
+  }
+ ],
+ "routes": [
+  {
+   "id": "easton",
+   "name": "Easton Glacier",
+   "grade": "Grade II · glacier, to 40°",
+   "level": 2,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    4.3,
+    8.8
+   ],
+   "prime": [
+    5.3,
+    7.6
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "blue"
+   ],
+   "summary": "The gentlest way up Baker, from the south. A long, steady glacier walk to the steaming Sherman Crater, then the Roman Wall.",
+   "skills": [
+    "Roped glacier travel",
+    "Self-arrest",
+    "Crevasse rescue",
+    "7,500 ft of gain"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Park Butte TH",
+     "type": "trailhead",
+     "ele": 3300,
+     "at": [
+      -121.8125,
+      48.7068
+     ]
+    },
+    {
+     "name": "Railroad Grade",
+     "type": "waypoint",
+     "ele": 5000,
+     "at": [
+      -121.8335,
+      48.7215
+     ]
+    },
+    {
+     "name": "Sandy Camp",
+     "type": "camp",
+     "ele": 6000,
+     "at": [
+      -121.829,
+      48.7345
+     ],
+     "note": "Tent sites on the moraine and snow at the toe of the Easton. Running water nearby.",
+     "sleep": true
+    },
+    {
+     "name": "Sherman Crater rim",
+     "type": "waypoint",
+     "ele": 9700,
+     "at": [
+      -121.8165,
+      48.77
+     ]
+    },
+    {
+     "name": "Grant Peak",
+     "type": "summit",
+     "ele": 10781,
+     "at": [
+      -121.8144,
+      48.7768
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Schreibers Meadow. Rocky Creek crossing uses a seasonal bridge and runs high on hot afternoons.",
+     "via": [
+      [
+       -121.823,
+       48.713
+      ]
+     ]
+    },
+    {
+     "miles": 1,
+     "terrain": "trail",
+     "hazards": {
+      "fall": 1
+     },
+     "note": "Railroad Grade, a knife-edge moraine crest.",
+     "via": [
+      [
+       -121.832,
+       48.728
+      ]
+     ]
+    },
+    {
+     "miles": 2.7,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 3,
+      "nav": 2,
+      "avy": 1,
+      "alt": 1
+     },
+     "note": "Long glacier climb. Crevasses open wide across the track by August.",
+     "via": [
+      [
+       -121.825,
+       48.748
+      ],
+      [
+       -121.821,
+       48.76
+      ]
+     ]
+    },
+    {
+     "miles": 0.6,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 2,
+      "avy": 2,
+      "crev": 1,
+      "alt": 1
+     },
+     "note": "Roman Wall, 35–40°, then the flat summit plateau. Stay out of the crater gases.",
+     "via": [
+      [
+       -121.8175,
+       48.774
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cd",
+   "name": "Coleman–Deming",
+   "grade": "Grade II · glacier, to 40°",
+   "level": 2,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    4.3,
+    8.8
+   ],
+   "prime": [
+    5.3,
+    7.6
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "blue"
+   ],
+   "summary": "The north-side standard, shorter and more scenic than the Easton, with an icefall next door for practice.",
+   "skills": [
+    "Roped glacier travel",
+    "Self-arrest",
+    "Crevasse rescue",
+    "7,100 ft of gain"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Heliotrope Ridge TH",
+     "type": "trailhead",
+     "ele": 3700,
+     "at": [
+      -121.8957,
+      48.8021
+     ]
+    },
+    {
+     "name": "Hogsback Camp",
+     "type": "camp",
+     "ele": 6000,
+     "at": [
+      -121.858,
+      48.791
+     ],
+     "note": "Moraine camp at the glacier edge with running water.",
+     "sleep": true
+    },
+    {
+     "name": "Black Buttes Camp",
+     "type": "camp",
+     "ele": 7000,
+     "at": [
+      -121.847,
+      48.783
+     ],
+     "note": "On the glacier below Colfax. Shorter summit day; probe the site."
+    },
+    {
+     "name": "Coleman–Deming Col",
+     "type": "waypoint",
+     "ele": 9000,
+     "at": [
+      -121.8275,
+      48.7722
+     ]
+    },
+    {
+     "name": "Grant Peak",
+     "type": "summit",
+     "ele": 10781,
+     "at": [
+      -121.8144,
+      48.7768
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 2.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Forest trail with several stream crossings that swell by afternoon.",
+     "via": [
+      [
+       -121.878,
+       48.7985
+      ]
+     ]
+    },
+    {
+     "miles": 0.9,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2
+     },
+     "note": "Rope up at the Hogsback and angle onto the Coleman.",
+     "via": []
+    },
+    {
+     "miles": 1.8,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 3,
+      "ice": 2,
+      "avy": 2,
+      "nav": 2
+     },
+     "note": "Under the Black Buttes. Move steadily below the Colfax seracs.",
+     "via": [
+      [
+       -121.837,
+       48.7775
+      ]
+     ]
+    },
+    {
+     "miles": 0.9,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 2,
+      "avy": 2,
+      "rock": 1,
+      "alt": 1
+     },
+     "note": "Pumice ridge, then the Roman Wall to the plateau.",
+     "via": [
+      [
+       -121.82,
+       48.7745
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Sherman Crater",
+   "type": "hazard",
+   "at": [
+    -121.816,
+    48.7695
+   ],
+   "ele": 9700,
+   "note": "Active fumaroles. Stay on the rim and out of the gas.",
+   "routes": [
+    "easton"
+   ]
+  },
+  {
+   "name": "Roman Wall",
+   "type": "crux",
+   "at": [
+    -121.8185,
+    48.7745
+   ],
+   "ele": 10300,
+   "note": "35–40° headwall above the col. Icy late in the season.",
+   "routes": [
+    "easton",
+    "cd"
+   ]
+  },
+  {
+   "name": "Colfax seracs",
+   "type": "hazard",
+   "at": [
+    -121.837,
+    48.7735
+   ],
+   "ele": 8600,
+   "note": "Ice cliffs on Colfax Peak shed onto the track. Keep moving.",
+   "routes": [
+    "cd"
+   ]
+  }
+ ]
+}

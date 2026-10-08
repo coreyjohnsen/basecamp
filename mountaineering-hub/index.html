@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Washington Mountaineering Hub</title>
+<meta name="description" content="Explore Washington peaks on real 3D terrain, then plan camps, dates, weather, hazards and gear for each route.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 13 6l5 9 3-4 9 16z" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><path d="M10 12l3 3 3-2" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg>
+    <div><b>Mountaineering Hub</b><small id="region">Washington State</small></div>
+  </div>
+  <nav class="peaks" id="peaks" aria-label="Peaks"></nav>
+  <div class="topbtns">
+    <button class="tbtn" id="bAll" title="Zoom out to every peak in the region">All peaks</button>
+    <button class="tbtn" id="bEdit" aria-pressed="false" title="Add or edit peaks, routes and markers">Edit data</button>
+  </div>
+</header>
+
+<div class="main">
+  <section class="stage" id="stage" aria-label="3D terrain map">
+    <div id="map"></div>
+    <div class="hud title"><h1 id="pkName"></h1><div class="elev" id="pkElev"></div><p id="pkBlurb"></p></div>
+    <div class="hud fly" id="flyOut" hidden></div>
+    <div class="hud tools">
+      <button class="tbtn" id="bFly" title="Fly along the selected route">Fly route</button>
+      <button class="tbtn" id="bHaz" aria-pressed="false" title="Color each section by its hazard rating for your summit day">Hazards</button>
+      <button class="tbtn" id="bLayer" title="Switch between satellite imagery and the USGS topo map">Topo</button>
+      <button class="tbtn" id="bSpin" aria-pressed="false" title="Slowly rotate the view">Spin</button>
+      <button class="tbtn" id="bFrame" title="Reframe the selected route">Reset view</button>
+    </div>
+    <div class="hud routes" id="routes"></div>
+    <div class="hud mapmsg" id="mapMsg" hidden></div>
+  </section>
+
+  <aside class="panel">
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="pane" id="pane" role="tabpanel"></div>
+  </aside>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

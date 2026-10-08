@@ -1,0 +1,229 @@
+{
+ "schema": 2,
+ "id": "glacier",
+ "name": "Glacier Peak",
+ "short": "Glacier Peak",
+ "elev": 10541,
+ "summit": [
+  -121.1135,
+  48.1118
+ ],
+ "range": "Cascade volcano · Glacier Peak Wilderness",
+ "blurb": "Dakobed. The most remote volcano in the Cascades: no road comes within a day of it.",
+ "treeline": 5500,
+ "snowline": 6800,
+ "permit": "Free self-issued wilderness permit at the trailhead. Northwest Forest Pass to park.",
+ "manager": {
+  "name": "Mt. Baker–Snoqualmie NF",
+  "url": "https://www.fs.usda.gov/mbs"
+ },
+ "links": [
+  {
+   "label": "USFS Mt. Baker–Snoqualmie alerts",
+   "url": "https://www.fs.usda.gov/r06/mbs/alerts"
+  }
+ ],
+ "routes": [
+  {
+   "id": "cool",
+   "name": "Gerdine–Cool Glaciers",
+   "grade": "Grade II · glacier, long approach",
+   "level": 2,
+   "days": [
+    3,
+    4
+   ],
+   "season": [
+    6,
+    8.8
+   ],
+   "prime": [
+    6.5,
+    8.2
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet"
+   ],
+   "summary": "The standard route via White Pass. The climbing is moderate; the 34-mile round trip is the crux.",
+   "skills": [
+    "Multi-day backpacking fitness",
+    "Roped glacier travel",
+    "Off-trail navigation",
+    "Loose pumice scrambling"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "N Fork Sauk TH",
+     "type": "trailhead",
+     "ele": 2100,
+     "at": [
+      -121.288,
+      48.0575
+     ]
+    },
+    {
+     "name": "Mackinaw Shelter",
+     "type": "camp",
+     "ele": 3000,
+     "at": [
+      -121.19,
+      48.059
+     ],
+     "note": "Old-growth river camp before the big climb."
+    },
+    {
+     "name": "White Pass",
+     "type": "camp",
+     "ele": 5900,
+     "at": [
+      -121.162,
+      48.044
+     ],
+     "note": "Meadow camps on the Pacific Crest Trail. Fragile: use bare sites.",
+     "sleep": true
+    },
+    {
+     "name": "Glacier Gap",
+     "type": "camp",
+     "ele": 7300,
+     "at": [
+      -121.118,
+      48.085
+     ],
+     "note": "Rock-ringed sites on a windy saddle. Snowmelt water.",
+     "sleep": true
+    },
+    {
+     "name": "Gerdine Ridge",
+     "type": "waypoint",
+     "ele": 8600,
+     "at": [
+      -121.114,
+      48.099
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 10541,
+     "at": [
+      -121.1135,
+      48.1118
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 5.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Flat miles through enormous cedars.",
+     "via": [
+      [
+       -121.24,
+       48.06
+      ]
+     ]
+    },
+    {
+     "miles": 3.5,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "3,000 ft of switchbacks, hot in the afternoon.",
+     "via": [
+      [
+       -121.172,
+       48.053
+      ]
+     ]
+    },
+    {
+     "miles": 4.5,
+     "terrain": "snow",
+     "hazards": {
+      "nav": 2,
+      "fall": 1
+     },
+     "note": "Foam Creek trail, then cross-country over a pass into the White Chuck basin.",
+     "via": [
+      [
+       -121.14,
+       48.044
+      ],
+      [
+       -121.126,
+       48.056
+      ],
+      [
+       -121.122,
+       48.07
+      ]
+     ]
+    },
+    {
+     "miles": 1.2,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 1,
+      "nav": 1,
+      "fall": 1
+     },
+     "note": "Gerdine Ridge and glacier edge.",
+     "via": []
+    },
+    {
+     "miles": 1.3,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "rock": 2,
+      "fall": 2,
+      "alt": 1
+     },
+     "note": "Cool Glacier to the saddle, then a steep loose pumice gully to the top.",
+     "via": [
+      [
+       -121.112,
+       48.106
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "White Chuck basin",
+   "type": "water",
+   "at": [
+    -121.122,
+    48.07
+   ],
+   "ele": 6500,
+   "note": "Snowmelt streams and tarns; last reliable water before Glacier Gap.",
+   "routes": [
+    "cool"
+   ]
+  },
+  {
+   "name": "Pumice gully",
+   "type": "crux",
+   "at": [
+    -121.113,
+    48.1095
+   ],
+   "ele": 10200,
+   "note": "Steep and loose. Helmets on, one party at a time.",
+   "routes": [
+    "cool"
+   ]
+  }
+ ]
+}

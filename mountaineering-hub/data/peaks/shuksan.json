@@ -1,0 +1,376 @@
+{
+ "schema": 2,
+ "id": "shuksan",
+ "name": "Mount Shuksan",
+ "short": "Shuksan",
+ "elev": 9131,
+ "summit": [
+  -121.603,
+  48.8306
+ ],
+ "range": "North Cascades National Park",
+ "blurb": "Not a volcano: a greenschist massif draped in hanging glaciers and capped by a rock pyramid.",
+ "treeline": 5000,
+ "snowline": 6000,
+ "permit": "North Cascades NP backcountry permit required for every overnight camp on the mountain. Northwest Forest Pass at the trailheads.",
+ "manager": {
+  "name": "North Cascades NP",
+  "url": "https://www.nps.gov/noca"
+ },
+ "links": [
+  {
+   "label": "North Cascades NP road conditions",
+   "url": "https://www.nps.gov/noca/planyourvisit/road-conditions.htm"
+  }
+ ],
+ "npsParkCode": "noca",
+ "routes": [
+  {
+   "id": "sulphide",
+   "name": "Sulphide Glacier",
+   "grade": "Grade II · glacier, class 3–4 summit",
+   "level": 3,
+   "days": [
+    2,
+    2
+   ],
+   "season": [
+    5,
+    8.8
+   ],
+   "prime": [
+    5.8,
+    7.8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap",
+    "blue"
+   ],
+   "summary": "The easiest way up: a broad glacier walk that ends in 600 ft of exposed scrambling on the summit pyramid.",
+   "skills": [
+    "Roped glacier travel",
+    "Exposed class 3–4 scrambling",
+    "Rappelling",
+    "Whiteout navigation"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Shannon Ridge TH",
+     "type": "trailhead",
+     "ele": 2500,
+     "at": [
+      -121.6155,
+      48.773
+     ]
+    },
+    {
+     "name": "The Notch",
+     "type": "camp",
+     "ele": 5400,
+     "at": [
+      -121.6105,
+      48.801
+     ],
+     "note": "Low camp where the ridge meets the park boundary."
+    },
+    {
+     "name": "High Camp",
+     "type": "camp",
+     "ele": 6400,
+     "at": [
+      -121.607,
+      48.81
+     ],
+     "note": "Rock platforms at the glacier edge, with a composting toilet.",
+     "sleep": true
+    },
+    {
+     "name": "Base of the pyramid",
+     "type": "waypoint",
+     "ele": 8400,
+     "at": [
+      -121.603,
+      48.8285
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 9131,
+     "at": [
+      -121.603,
+      48.8306
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 3.3,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Old road, then steep forest onto Shannon Ridge.",
+     "via": [
+      [
+       -121.614,
+       48.787
+      ]
+     ]
+    },
+    {
+     "miles": 0.9,
+     "terrain": "snow",
+     "hazards": {
+      "fall": 1,
+      "nav": 1
+     },
+     "note": "Traverse steep snow through the notch to the glacier.",
+     "via": []
+    },
+    {
+     "miles": 2,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "nav": 3
+     },
+     "note": "Wide, gentle and featureless. Easy to lose in cloud.",
+     "via": [
+      [
+       -121.605,
+       48.82
+      ]
+     ]
+    },
+    {
+     "miles": 0.2,
+     "terrain": "scramble",
+     "hazards": {
+      "rock": 3,
+      "fall": 3
+     },
+     "note": "Central gully (class 3–4) or the SE rib (low 5th). Rockfall from parties above is the main danger. Rappel to descend.",
+     "via": []
+    }
+   ]
+  },
+  {
+   "id": "fisher",
+   "name": "Fisher Chimneys",
+   "grade": "Grade III · class 4, snow and ice to 50°",
+   "level": 4,
+   "days": [
+    2,
+    3
+   ],
+   "season": [
+    6,
+    8.8
+   ],
+   "prime": [
+    6.5,
+    8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap",
+    "rock0",
+    "blue"
+   ],
+   "summary": "A complete alpine route: gullies, a steep snow slide, two glaciers and the pyramid, all in one long day from Lake Ann.",
+   "skills": [
+    "Exposed class 4 up and down",
+    "Steep snow and late-season ice",
+    "Glacier travel",
+    "Fast transitions"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Lake Ann TH",
+     "type": "trailhead",
+     "ele": 4700,
+     "at": [
+      -121.6862,
+      48.8497
+     ]
+    },
+    {
+     "name": "Lake Ann",
+     "type": "camp",
+     "ele": 4800,
+     "at": [
+      -121.644,
+      48.8315
+     ],
+     "note": "Lakeside camps facing the Lower Curtis Glacier.",
+     "sleep": true
+    },
+    {
+     "name": "Winnie's Slide bivy",
+     "type": "camp",
+     "ele": 7000,
+     "at": [
+      -121.62,
+      48.8318
+     ],
+     "note": "A few rock ledges above the slide. Carry-over only."
+    },
+    {
+     "name": "Hell's Highway",
+     "type": "waypoint",
+     "ele": 7700,
+     "at": [
+      -121.612,
+      48.826
+     ]
+    },
+    {
+     "name": "Base of the pyramid",
+     "type": "waypoint",
+     "ele": 8400,
+     "at": [
+      -121.603,
+      48.8285
+     ]
+    },
+    {
+     "name": "Summit",
+     "type": "summit",
+     "ele": 9131,
+     "at": [
+      -121.603,
+      48.8306
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 4.1,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Drops 800 ft into Swift Creek before climbing to the lake.",
+     "via": [
+      [
+       -121.665,
+       48.84
+      ]
+     ]
+    },
+    {
+     "miles": 1.5,
+     "terrain": "scramble",
+     "hazards": {
+      "fall": 3,
+      "rock": 2,
+      "nav": 2
+     },
+     "note": "Traverse to the Chimneys and climb 800 ft of class 3–4 gullies. Hard to follow in the dark.",
+     "via": [
+      [
+       -121.631,
+       48.83
+      ]
+     ]
+    },
+    {
+     "miles": 0.7,
+     "terrain": "ice",
+     "hazards": {
+      "fall": 3,
+      "crev": 2,
+      "ice": 1
+     },
+     "note": "Winnie's Slide (45–50°), then the Upper Curtis Glacier.",
+     "via": [
+      [
+       -121.616,
+       48.829
+      ]
+     ]
+    },
+    {
+     "miles": 0.8,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "fall": 2,
+      "nav": 2
+     },
+     "note": "Hell's Highway ramp onto the Sulphide.",
+     "via": [
+      [
+       -121.607,
+       48.8265
+      ]
+     ]
+    },
+    {
+     "miles": 0.2,
+     "terrain": "scramble",
+     "hazards": {
+      "rock": 3,
+      "fall": 3
+     },
+     "note": "Summit pyramid, as for the Sulphide route.",
+     "via": []
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Summit pyramid gully",
+   "type": "crux",
+   "at": [
+    -121.603,
+    48.8296
+   ],
+   "ele": 8800,
+   "note": "Class 3–4 with rockfall from parties above. Rappel stations on the descent.",
+   "routes": [
+    "sulphide",
+    "fisher"
+   ]
+  },
+  {
+   "name": "Fisher Chimneys",
+   "type": "crux",
+   "at": [
+    -121.626,
+    48.8305
+   ],
+   "ele": 6200,
+   "note": "800 ft of class 3–4 gullies. Follow cairns; hard to find from above.",
+   "routes": [
+    "fisher"
+   ]
+  },
+  {
+   "name": "Winnie's Slide",
+   "type": "crux",
+   "at": [
+    -121.6185,
+    48.8315
+   ],
+   "ele": 6900,
+   "note": "45–50° snow, bare ice by late summer.",
+   "routes": [
+    "fisher"
+   ]
+  }
+ ]
+}

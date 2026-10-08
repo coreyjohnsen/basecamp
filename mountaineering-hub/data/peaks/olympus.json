@@ -1,0 +1,267 @@
+{
+ "schema": 2,
+ "id": "olympus",
+ "name": "Mount Olympus",
+ "short": "Olympus",
+ "elev": 7980,
+ "summit": [
+  -123.7108,
+  47.8013
+ ],
+ "range": "Olympic National Park",
+ "blurb": "A rainforest approach from 573 ft to the third-largest glacier system in the lower 48.",
+ "treeline": 4800,
+ "snowline": 5300,
+ "permit": "Olympic NP wilderness permit for every night; reserve Hoh River camps ahead. Park entrance fee. Follow the park food-storage rules.",
+ "manager": {
+  "name": "Olympic NP",
+  "url": "https://www.nps.gov/olym"
+ },
+ "links": [
+  {
+   "label": "Olympic NP road conditions",
+   "url": "https://www.nps.gov/olym/planyourvisit/current-road-conditions.htm"
+  }
+ ],
+ "npsParkCode": "olym",
+ "routes": [
+  {
+   "id": "blue",
+   "name": "Blue Glacier",
+   "grade": "Grade II · glacier, low 5th summit block",
+   "level": 3,
+   "days": [
+    3,
+    5
+   ],
+   "season": [
+    5.5,
+    8.8
+   ],
+   "prime": [
+    6.2,
+    7.8
+   ],
+   "kit": [
+    "axe",
+    "glacier",
+    "helmet",
+    "rap",
+    "rock0",
+    "bear"
+   ],
+   "summary": "Seventeen miles up the Hoh River to Glacier Meadows, then across the Blue Glacier and Snow Dome to a short rock pitch.",
+   "skills": [
+    "Roped glacier travel on bare ice",
+    "One pitch of low-5th rock",
+    "Rappelling",
+    "44-mile round trip"
+   ],
+   "line": {
+    "quality": "approximate",
+    "asOf": "2026-10",
+    "source": "Hand-placed from memory; not surveyed"
+   },
+   "waypoints": [
+    {
+     "name": "Hoh Visitor Center",
+     "type": "trailhead",
+     "ele": 573,
+     "at": [
+      -123.9345,
+      47.8607
+     ]
+    },
+    {
+     "name": "Olympus Guard Station",
+     "type": "camp",
+     "ele": 948,
+     "at": [
+      -123.756,
+      47.8755
+     ],
+     "note": "River-bar camps at mile 9.",
+     "sleep": true
+    },
+    {
+     "name": "Elk Lake",
+     "type": "camp",
+     "ele": 2560,
+     "at": [
+      -123.688,
+      47.844
+     ],
+     "note": "Small lake camp at mile 15."
+    },
+    {
+     "name": "Glacier Meadows",
+     "type": "camp",
+     "ele": 4300,
+     "at": [
+      -123.689,
+      47.827
+     ],
+     "note": "High camp with a ranger tent and shelters, mile 17.4.",
+     "sleep": true
+    },
+    {
+     "name": "Lateral moraine",
+     "type": "waypoint",
+     "ele": 5100,
+     "at": [
+      -123.692,
+      47.82
+     ]
+    },
+    {
+     "name": "Snow Dome",
+     "type": "waypoint",
+     "ele": 6600,
+     "at": [
+      -123.708,
+      47.8115
+     ]
+    },
+    {
+     "name": "West Peak",
+     "type": "summit",
+     "ele": 7980,
+     "at": [
+      -123.7108,
+      47.8013
+     ]
+    }
+   ],
+   "sections": [
+    {
+     "miles": 9.1,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Nearly flat through temperate rainforest.",
+     "via": [
+      [
+       -123.86,
+       47.866
+      ],
+      [
+       -123.8,
+       47.873
+      ]
+     ]
+    },
+    {
+     "miles": 6,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Cross the Hoh on the high bridge at mile 13 and start climbing.",
+     "via": [
+      [
+       -123.72,
+       47.878
+      ],
+      [
+       -123.695,
+       47.869
+      ]
+     ]
+    },
+    {
+     "miles": 2.4,
+     "terrain": "trail",
+     "hazards": {
+      "fall": 2
+     },
+     "note": "A washed-out gully is descended on a cable ladder with a hand line.",
+     "via": [
+      [
+       -123.688,
+       47.835
+      ]
+     ]
+    },
+    {
+     "miles": 0.9,
+     "terrain": "trail",
+     "hazards": {},
+     "note": "Up to the crest of the moraine and the first view of the ice.",
+     "via": []
+    },
+    {
+     "miles": 1.6,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "fall": 2,
+      "rock": 1,
+      "nav": 2
+     },
+     "note": "Down the loose moraine, across the Blue Glacier, up Snow Dome at 35–40°.",
+     "via": [
+      [
+       -123.699,
+       47.816
+      ]
+     ]
+    },
+    {
+     "miles": 1,
+     "terrain": "glacier",
+     "hazards": {
+      "crev": 2,
+      "fall": 3,
+      "rock": 2,
+      "nav": 2
+     },
+     "note": "Crystal Pass, the false summit, then the West Peak block. One rappel off.",
+     "via": [
+      [
+       -123.706,
+       47.805
+      ]
+     ]
+    }
+   ]
+  }
+ ],
+ "pois": [
+  {
+   "name": "Hoh River high bridge",
+   "type": "viewpoint",
+   "at": [
+    -123.695,
+    47.869
+   ],
+   "ele": 1400,
+   "note": "Mile 13.2. The climbing starts here.",
+   "routes": [
+    "blue"
+   ]
+  },
+  {
+   "name": "Jemrod Gully ladder",
+   "type": "crux",
+   "at": [
+    -123.6885,
+    47.832
+   ],
+   "ele": 4000,
+   "note": "Washed-out gully descended on a cable ladder with a hand line.",
+   "routes": [
+    "blue"
+   ]
+  },
+  {
+   "name": "Summit block",
+   "type": "crux",
+   "at": [
+    -123.7104,
+    47.8016
+   ],
+   "ele": 7900,
+   "note": "One pitch of class 4 to low 5th. Rappel off.",
+   "routes": [
+    "blue"
+   ]
+  }
+ ]
+}
