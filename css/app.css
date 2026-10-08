@@ -235,3 +235,4 @@ pre.sheet{margin:0;white-space:pre-wrap;font:400 12px/1.55 var(--f-mono);backgro
 .ed .btn{padding:6px 10px;font-size:13px}
 ul.probs{margin:0;padding-left:18px;color:var(--h3);font-size:12.5px}
 @media (max-width:900px){ .topbtns{order:2;margin-left:auto} .peaks{order:3} .days{grid-template-columns:repeat(4,minmax(0,1fr))} }
+a.brand{color:inherit;text-decoration:none}

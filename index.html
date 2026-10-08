@@ -5,47 +5,109 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Washington Mountaineering Hub</title>
 <meta name="description" content="Explore Washington peaks on real 3D terrain, then plan camps, dates, weather, hazards and gear for each route.">
+<script>
+  // Old links pointed at the app on this page (…/#rainier/dc). Send them to the map.
+  if (/^#[a-z0-9-]+(\/[a-z0-9-]+)?$/i.test(location.hash)) location.replace('map.html' + location.hash);
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
 <link rel="stylesheet" href="css/app.css">
+<link rel="stylesheet" href="css/home.css">
 </head>
-<body>
+<body class="home">
 <header class="top">
-  <div class="brand">
+  <a class="brand" href="./">
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M2 27 13 6l5 9 3-4 9 16z" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linejoin="round"/><path d="M10 12l3 3 3-2" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linejoin="round"/></svg>
-    <div><b>Mountaineering Hub</b><small id="region">Washington State</small></div>
-  </div>
-  <nav class="peaks" id="peaks" aria-label="Peaks"></nav>
-  <div class="topbtns">
-    <button class="tbtn" id="bAll" title="Zoom out to every peak in the region">All peaks</button>
-    <button class="tbtn" id="bEdit" aria-pressed="false" title="Add or edit peaks, routes and markers">Edit data</button>
-  </div>
+    <div><b>Mountaineering Hub</b><small>Washington State</small></div>
+  </a>
+  <nav class="hnav" aria-label="Sections">
+    <a href="#peaks">Peaks</a><a href="#features">Features</a><a href="#reports">Reports</a><a href="#sources">Sources</a>
+  </nav>
+  <a class="btn" href="map.html">Open the map</a>
 </header>
 
-<div class="main">
-  <section class="stage" id="stage" aria-label="3D terrain map">
-    <div id="map"></div>
-    <div class="hud title"><h1 id="pkName"></h1><div class="elev" id="pkElev"></div><p id="pkBlurb"></p></div>
-    <div class="hud fly" id="flyOut" hidden></div>
-    <div class="hud tools">
-      <button class="tbtn" id="bFly" title="Fly along the selected route">Fly route</button>
-      <button class="tbtn" id="bHaz" aria-pressed="false" title="Color each section by its hazard rating for your summit day">Hazards</button>
-      <button class="tbtn" id="bLayer" title="Switch between satellite imagery and the USGS topo map">Topo</button>
-      <button class="tbtn" id="bSpin" aria-pressed="false" title="Slowly rotate the view">Spin</button>
-      <button class="tbtn" id="bFrame" title="Reframe the selected route">Reset view</button>
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="kicker">Cascades &amp; Olympics · planning aid</p>
+      <h1>Pick a peak.<br>Plan the climb.</h1>
+      <p class="lede">Explore Washington's big mountains on real 3D terrain, then work out camps, dates, weather, hazards and gear for the route you want to climb.</p>
+      <div class="ctas">
+        <a class="btn big" href="map.html">Open the 3D map</a>
+        <a class="btn ghost big" href="#peaks">Browse peaks and routes</a>
+      </div>
+      <dl class="hstats" id="hstats"></dl>
     </div>
-    <div class="hud routes" id="routes"></div>
-    <div class="hud mapmsg" id="mapMsg" hidden></div>
+    <div class="skyline" id="skyline" aria-label="Peaks, west to east"></div>
   </section>
 
-  <aside class="panel">
-    <div class="tabs" role="tablist" id="tabs"></div>
-    <div class="pane" id="pane" role="tabpanel"></div>
-  </aside>
-</div>
+  <section class="wrap sect" id="peaks">
+    <div class="shead">
+      <div><h2>Peaks and routes</h2><p class="sub">Every route opens on the map, ready to plan. Sorted by elevation.</p></div>
+      <div class="filters">
+        <div class="seg" id="fLevel" role="group" aria-label="Experience level"></div>
+        <button class="tbtn" id="fSeason" aria-pressed="false" title="Only routes inside their climbing season this month">In season now</button>
+      </div>
+    </div>
+    <p class="sub" id="count" aria-live="polite"></p>
+    <div class="cards" id="cards"><p class="sub">Loading peaks…</p></div>
+  </section>
 
-<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-<script type="module" src="js/main.js"></script>
+  <section class="band" id="features">
+    <div class="wrap sect">
+      <div class="shead"><div><h2>What it does</h2><p class="sub">One screen: the map on the left, a planning panel on the right.</p></div></div>
+      <div class="feats">
+        <article><b>01</b><h3>3D terrain</h3><p>Real elevation with satellite or USGS topo imagery. Fly the route, spin the view, or color each section by its hazard rating for your date.</p></article>
+        <article><b>02</b><h3>Route by section</h3><p>Trailhead to summit, split into sections with mileage, gain, terrain and hazard ratings for crevasses, rockfall, avalanche, falls and navigation.</p></article>
+        <article><b>03</b><h3>Plan</h3><p>Choose camps, team size and pace. Get an elevation profile and a day-by-day itinerary with moving times and a turnaround time.</p></article>
+        <article><b>04</b><h3>Weather at every waypoint</h3><p>Hourly forecast at each waypoint's own elevation: wind aloft, freezing level, wind chill and new snow, plus the NWS text forecast and sunrise, sunset and moon.</p></article>
+        <article><b>05</b><h3>Updates</h3><p>Active weather alerts, NWAC avalanche danger for the zone, park alerts and curated route and access reports.</p></article>
+        <article><b>06</b><h3>Gear list</h3><p>A checklist built from the route's terrain, the season, your number of nights and the forecast, with ticks saved on this device.</p></article>
+        <article><b>07</b><h3>Trip sheet and log</h3><p>A sheet to leave with someone at home, a trailhead checklist, and a climb log of summits and turnarounds.</p></article>
+        <article><b>08</b><h3>Editor</h3><p>Drag waypoints, trace sections, import a GPX track, or add a whole new peak, then download the file and commit it.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sect" id="reports">
+    <div class="shead"><div><h2>Latest reports</h2><p class="sub" id="checked">Curated route and access conditions.</p></div></div>
+    <div class="reps" id="reps"><p class="sub">Loading reports…</p></div>
+  </section>
+
+  <section class="wrap sect" id="sources">
+    <div class="split">
+      <div>
+        <h2>Where the data comes from</h2>
+        <p class="sub" style="margin-bottom:12px">No accounts and no API keys. Each source loads on its own, so if one is down the rest keep working.</p>
+        <ul class="srcs">
+          <li><b>Terrain</b><span>Mapzen terrarium tiles, AWS Open Data</span></li>
+          <li><b>Imagery and topo</b><span>USGS The National Map</span></li>
+          <li><b>Hourly forecast</b><span>Open-Meteo</span></li>
+          <li><b>Text forecast and alerts</b><span>National Weather Service</span></li>
+          <li><b>Avalanche danger</b><span>NWAC via avalanche.org</span></li>
+          <li><b>Route reports</b><span>Curated in this repository</span></li>
+        </ul>
+      </div>
+      <div class="warn">
+        <h2>Read this first</h2>
+        <ul>
+          <li><b>Route lines are approximate.</b> They were placed by hand, not surveyed, and are drawn dashed.</li>
+          <li><b>Route facts are unverified.</b> Check elevations, grades and permit rules with the land manager and a current guidebook.</li>
+          <li><b>Weather is model output.</b> Read the NWS and NWAC forecasts as well.</li>
+          <li>This is a planning aid, not a navigation tool.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>Mountaineering Hub · Washington State</span>
+    <span>Plans, gear ticks and the climb log stay in this browser.</span>
+  </div>
+</footer>
+
+<script type="module" src="js/home.js"></script>
 </body>
 </html>

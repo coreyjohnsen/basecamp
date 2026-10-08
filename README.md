@@ -25,7 +25,8 @@ To run it locally, serve the folder (the browser will not load the data files fr
 python3 -m http.server 8000
 ```
 
-Links can point at a route: `…/#rainier/dc`.
+The landing page is `index.html`; the app itself is `map.html`. Links can point at a route: `…/map.html#rainier/dc`
+(old `…/#rainier/dc` links still work: the landing page forwards them to the map).
 
 ## What is live, and where it comes from
 
@@ -122,8 +123,11 @@ Times come from distance, gain and terrain (`secTime` in `js/calc.js`).
 ## Layout
 
 ```
-index.html        page shell
+index.html        landing page: peaks, routes, features, latest reports
+map.html          app shell
 css/app.css       styles (light and dark follow the system setting)
+css/home.css      landing page styles
+js/home.js        landing page: builds the skyline and route cards from the data files
 js/config.js      every outside service and tile URL
 js/main.js        boot and wiring
 js/map.js         MapLibre 3D view, route lines, markers, fly-through
